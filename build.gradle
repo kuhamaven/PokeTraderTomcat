@@ -26,6 +26,9 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    // Use Hibernate
+    implementation 'org.hibernate:hibernate-agroal:5.4.12.Final'
 }
 
 application {
