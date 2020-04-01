@@ -24,3 +24,5 @@ DISCONNECT
 INSERT INTO USER VALUES(2,'sofia.sidanez@ing.austral.edu.ar','Sofia',TRUE,'Sida\u00c3\u00b1ez','abcd')
 COMMIT
 DISCONNECT
+/*C6*/SET SCHEMA PUBLIC
+DISCONNECT
