@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="jdbc:hsqldb:file:C:/Users/Claudio/IdeaProjects/poke-trader/PokeTrader DB/" uuid="78313fe6-7c9e-4211-af2c-bdf071c64475">
+    <data-source source="LOCAL" name="jdbc:hsqldb:hsql://localhost/xdb" uuid="1c5151c9-d052-4e69-829d-f4ffe18bf2e1">
       <driver-ref>hsqldb.local</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.hsqldb.jdbc.JDBCDriver</jdbc-driver>
-      <jdbc-url>jdbc:hsqldb:file:$PROJECT_DIR$/PokeTrader DB/</jdbc-url>
+      <jdbc-url>jdbc:hsqldb:hsql://localhost/xdb</jdbc-url>
     </data-source>
   </component>
 </project>
