@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet("/secure/user")
+@WebServlet("/user")
 public class UserServlet extends HttpServlet {
 
 
@@ -21,6 +21,8 @@ public class UserServlet extends HttpServlet {
 
     resp.setContentType("application/json");
     resp.setCharacterEncoding("UTF-8");
+    resp.setHeader("Access-Control-Allow-Origin", "*");
+    resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
 
     final Gson gson = new Gson();
     String json = gson.toJson(users);
