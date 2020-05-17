@@ -16,6 +16,11 @@ public class JspSample extends HttpServlet {
 
 
   @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    super.doPost(req, resp);
+  }
+
+  @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
     final String param1 = join(", ", notNull(req.getParameterValues("param1"), EMPTY_ARRAY));
     final String param2 = join(", ", notNull(req.getParameterValues("param2"), EMPTY_ARRAY));

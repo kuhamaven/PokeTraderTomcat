@@ -5,7 +5,7 @@
          version="3.1">
 
 
-    <filter>
+    <!--<filter>
         <filter-name>Security Filter</filter-name>
         <filter-class>org.securityfilter.filter.SecurityFilter</filter-class>
         <init-param>
@@ -17,7 +17,7 @@
     <filter-mapping>
         <filter-name>Security Filter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
 
 </web-app>
