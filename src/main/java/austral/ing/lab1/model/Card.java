@@ -34,8 +34,8 @@ public class Card {
     @Column(name = "VARIANT")
     private String variant;
 
-    //@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    // private List<Address> addresses = new ArrayList<>();
+    @ManyToMany(mappedBy = "cards")
+    private List<User> users = new ArrayList<>();
 
 
     public String getName() {

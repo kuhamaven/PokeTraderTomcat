@@ -1,8 +1,56 @@
-/*C3*/SET SCHEMA PUBLIC
+/*C7*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C4*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C5*/SET SCHEMA PUBLIC
+/*C8*/SET SCHEMA PUBLIC
+set schema PUBLIC
+drop table USER
+/*C9*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C6*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C10*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+drop table if exists User CASCADE 
+create table User (UID varchar(255) not null, EMAIL varchar(255), PASSWORD varchar(255), primary key (UID))
+INSERT INTO USER VALUES('ulalalalala','khalil.stessens@ing.austral.edu.ar','1234')
+COMMIT
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+drop table if exists Card CASCADE 
+drop table if exists User CASCADE 
+drop table if exists User_Collection CASCADE 
+create table Card (id bigint not null, IMAGE_URL varchar(255), NAME varchar(255), TYPE varchar(255), VARIANT varchar(255), primary key (id))
+create table User (UID varchar(255) not null, EMAIL varchar(255), PASSWORD varchar(255), primary key (UID))
+create table User_Collection (UID varchar(255) not null, ID bigint not null)
+alter table User_Collection add constraint FKmugn4vhbrvpa0h4ltc23jqqf9 foreign key (ID) references Card
+alter table User_Collection add constraint FKcfw6a5l1jna2uciq9qjb652hm foreign key (UID) references User
+INSERT INTO USER VALUES('ulalalalala','khalil.stessens@ing.austral.edu.ar','1234')
+COMMIT
+DISCONNECT
+/*C24*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES(1,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_35.png','Pikachu','Electric','Basic')
+INSERT INTO CARD VALUES(2,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_36.png','Raichu','Electric','Stage 1')
+INSERT INTO CARD VALUES(3,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_33.png','Magikarp','Water','Basic')
+COMMIT
+/*C25*/SET SCHEMA PUBLIC
 DISCONNECT

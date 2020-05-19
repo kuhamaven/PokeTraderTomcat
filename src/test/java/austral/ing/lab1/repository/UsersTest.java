@@ -34,18 +34,15 @@ public class UsersTest {
     final User user = new User();
 
     user.setEmail("khalil.stessens@ing.austral.edu.ar");
-    user.setFirstName("Khalil");
-    user.setLastName("Stessens");
+    user.setId("ulalalalala");
     user.setPassword("1234");
 
-    assertThat(Users.persist(user).getId(), greaterThan(0L));
+    assertThat(Users.persist(user).getId(), is("ulalalalala"));
 
     final Optional<User> persistedUser = Users.findById(user.getId());
 
     assertThat(persistedUser.isPresent(), is(true));
     assertThat(persistedUser.get().getEmail(), is("khalil.stessens@ing.austral.edu.ar"));
-    assertThat(persistedUser.get().getFirstName(), is("Khalil"));
-    assertThat(persistedUser.get().getLastName(), is("Stessens"));
 
     Optional<User> byEmail = Users.findByEmail(persistedUser.get().getEmail());
     System.out.println(byEmail);

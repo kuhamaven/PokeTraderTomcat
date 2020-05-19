@@ -3,60 +3,31 @@ package austral.ing.lab1.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@Table(name = "USER", indexes = @Index(name = "EMAIL", columnList = "EMAIL", unique = true))
 public class User {
-
-  @Column(name = "FIRST_NAME")
-  private String firstName;
-
-  @Column(name = "LAST_NAME")
-  private String lastName;
 
   @Column(name = "EMAIL")
   private String email;
 
-  @Column(name = "IS_ACTIVE")
-  private Boolean isActive;
-
   @Id
-  @GeneratedValue(generator = "increment")
-  @GenericGenerator(name = "increment", strategy = "increment")
-  private Long id;
+  @Column(name = "UID")
+  private String id;
 
   @Column(name = "PASSWORD")
   private String password;
 
-  //@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
- // private List<Address> addresses = new ArrayList<>();
-
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  public String getLastName() {
-    return lastName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JoinTable(
+          name = "User_Collection",
+          joinColumns = { @JoinColumn(name = "UID")},
+          inverseJoinColumns = { @JoinColumn(name = "ID")}
+  )
+  private List<Card> cards = new ArrayList<>();
 
   public String getEmail() {
     return email;
@@ -66,20 +37,12 @@ public class User {
     this.email = email;
   }
 
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
-  }
-
-  public Boolean getActive() {
-    return isActive;
-  }
-
-  public void setActive(Boolean active) {
-    isActive = active;
   }
 
   public void setPassword(String password) {

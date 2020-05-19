@@ -18,11 +18,9 @@ public class Signup extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     final User user = new User();
 
-    user.setFirstName(req.getParameter("firstname"));
-    user.setLastName(req.getParameter("lastname"));
     user.setEmail(req.getParameter("email"));
     user.setPassword(req.getParameter("password"));
-    user.setActive(true);
+    user.setId(req.getParameter("id"));
 
     Users.persist(user);
 
