@@ -4,6 +4,7 @@ import austral.ing.lab1.entity.Cards;
 import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.Card;
 import austral.ing.lab1.model.User;
+import com.google.common.net.HttpHeaders;
 import com.google.gson.Gson;
 
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,7 @@ public class CollectionMakerServlet extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] ids = gson.fromJson(req.getReader(),String[].class);
         Optional<User> currentUser = Users.findByEmail(ids[0]);
@@ -32,7 +33,15 @@ public class CollectionMakerServlet extends HttpServlet {
             System.out.println(ids[i]);
         }
         Users.persist(currentUser.get());
+        PrintWriter out = resp.getWriter();
+        resp.setContentType("application/json; charset=UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
+        out.print("{}");
+        resp.setStatus(200);
+        out.close();
     }
-
 }
 

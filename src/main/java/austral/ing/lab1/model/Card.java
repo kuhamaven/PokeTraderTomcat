@@ -1,6 +1,7 @@
 package austral.ing.lab1.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.CascadeType;
@@ -35,6 +36,7 @@ public class Card {
     private String variant;
 
     @ManyToMany(mappedBy = "cards")
+    @JsonBackReference
     private List<User> users = new ArrayList<>();
 
     public List<User> getUsers(){

@@ -1,6 +1,7 @@
 package austral.ing.lab1.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class User {
   private String password;
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JsonManagedReference
   @JoinTable(
           name = "User_Collection",
           joinColumns = { @JoinColumn(name = "UID")},

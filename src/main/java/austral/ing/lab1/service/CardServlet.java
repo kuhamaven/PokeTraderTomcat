@@ -1,6 +1,7 @@
 package austral.ing.lab1.service;
 
 import austral.ing.lab1.model.Card;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +25,9 @@ public class CardServlet extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
 
-        final Gson gson = new Gson();
-        String json = gson.toJson(cards);
+        //final Gson gson = new Gson();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(cards); //gson.toJson(cards);
         PrintWriter out = resp.getWriter();
         out.print(json);
         out.flush();
