@@ -29,6 +29,20 @@ public class User {
   )
   private List<Card> cards = new ArrayList<>();
 
+  public void addCard(Card card){
+    cards.add(card);
+    card.getUsers().add(this);
+  }
+
+  public void removeCard(Card card){
+    cards.remove(card);
+    card.getUsers().remove(this);
+  }
+
+  public List<Card> getCards(){
+    return cards;
+  }
+
   public String getEmail() {
     return email;
   }

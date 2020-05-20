@@ -37,6 +37,10 @@ public class Card {
     @ManyToMany(mappedBy = "cards")
     private List<User> users = new ArrayList<>();
 
+    public List<User> getUsers(){
+        return users;
+    }
+
 
     public String getName() {
         return name;

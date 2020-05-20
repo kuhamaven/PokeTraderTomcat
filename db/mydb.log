@@ -54,3 +54,102 @@ INSERT INTO CARD VALUES(3,'https://assets.pokemon.com/assets/cms2/img/cards/web/
 COMMIT
 /*C25*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C24*/DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C27*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',1)
+COMMIT
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+drop table if exists Card CASCADE 
+drop table if exists User CASCADE 
+drop table if exists User_Collection CASCADE 
+create table Card (id bigint not null, IMAGE_URL varchar(255), NAME varchar(255), TYPE varchar(255), VARIANT varchar(255), primary key (id))
+create table User (UID varchar(255) not null, EMAIL varchar(255), PASSWORD varchar(255), primary key (UID))
+create table User_Collection (UID varchar(255) not null, ID bigint not null)
+alter table User_Collection add constraint FKmugn4vhbrvpa0h4ltc23jqqf9 foreign key (ID) references Card
+alter table User_Collection add constraint FKcfw6a5l1jna2uciq9qjb652hm foreign key (UID) references User
+INSERT INTO USER VALUES('ulalalalala','khalil.stessens@ing.austral.edu.ar','1234')
+COMMIT
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES(1,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_28.png','Seel','Water','Basic')
+INSERT INTO CARD VALUES(2,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_29.png','Dewgong','Water','Stage 1')
+INSERT INTO CARD VALUES(3,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_33.png','Magikarp','Water','Basic')
+COMMIT
+/*C29*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C40*/DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',2)
+COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='ulalalalala' AND ID=2
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',2)
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',3)
+COMMIT
+/*C43*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES(4,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_35.png','Pikachu','Electric','Basic')
+INSERT INTO CARD VALUES(5,'https://assets.pokemon.com/assets/cms2/img/cards/web/XY12/XY12_EN_36.png','Raichu','Electric','Stage 1')
+COMMIT
+DISCONNECT
+/*C8*/drop table USER_COLLECTION
+/*C48*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C49*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C47*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C50*/SET SCHEMA PUBLIC
+create table User_Collection (UID varchar(255) not null, ID bigint not null)
+alter table User_Collection add constraint FKmugn4vhbrvpa0h4ltc23jqqf9 foreign key (ID) references Card
+alter table User_Collection add constraint FKcfw6a5l1jna2uciq9qjb652hm foreign key (UID) references User
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',5)
+COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='ulalalalala' AND ID=5
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',5)
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',4)
+COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='ulalalalala' AND ID=5
+DELETE FROM USER_COLLECTION WHERE UID='ulalalalala' AND ID=4
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',5)
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',4)
+INSERT INTO USER_COLLECTION VALUES('ulalalalala',1)
+COMMIT
+/*C51*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C52*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C50*/DISCONNECT
+/*C8*/DISCONNECT
