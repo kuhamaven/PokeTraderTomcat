@@ -1,5 +1,7 @@
 package austral.ing.lab1.util;
 
+import com.google.gson.Gson;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebFilter;
@@ -9,12 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 @WebFilter(urlPatterns = "/*")
 public class SecurityFilter extends HttpFilter {
-
+//
 //    @Override
 //    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
 //        if (isSecure(req)) {
-//
-//            final String appId = getAppId(req);   //HAcerle llegar el Key y ID del post a firebase
+//            Gson gson = new Gson();
+//            String[] tokenUser = gson.fromJson(req.getReader(),String[].class);
+//            final String appId = "AIzaSyA9f6ahNiOBaLQHmydvcDgq0RyqKIZOyis";  //HAcerle llegar el Key y ID del post a firebase
 //            final String userToken = getUserToken(req);
 //
 //            final String content = prepareBody(userToken);
@@ -34,9 +37,9 @@ public class SecurityFilter extends HttpFilter {
 //
 //        }
 //    }
-//
-//    private boolean isSecure(HttpServletRequest req) {
-//    }
+
+    //private boolean isSecure(HttpServletRequest req) {
+    //}
 
 
 }

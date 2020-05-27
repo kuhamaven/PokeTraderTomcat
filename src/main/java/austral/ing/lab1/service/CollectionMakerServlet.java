@@ -18,8 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @WebServlet("/cardmaker")
-public class CollectionMakerServlet extends HttpServlet {
-
+public class CollectionMakerServlet extends OptionsServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -33,8 +32,8 @@ public class CollectionMakerServlet extends HttpServlet {
             System.out.println(ids[i]);
         }
         Users.persist(currentUser.get());
-        PrintWriter out = resp.getWriter();
         resp.setContentType("application/json; charset=UTF-8");
+        PrintWriter out = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
