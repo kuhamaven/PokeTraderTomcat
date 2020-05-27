@@ -19,7 +19,7 @@ public class Signup extends HttpServlet {
     final User user = new User();
 
     user.setEmail(req.getParameter("email"));
-    user.setPassword(req.getParameter("password"));
+    //user.setPassword(req.getParameter("password"));
     user.setId(req.getParameter("id"));
 
     Users.persist(user);

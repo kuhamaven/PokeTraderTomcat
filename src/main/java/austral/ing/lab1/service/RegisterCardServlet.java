@@ -17,30 +17,28 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/cardmaker")
-public class CollectionMakerServlet extends OptionsServlet {
+@WebServlet("/registercard")
+public class RegisterCardServlet extends OptionsServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] ids = gson.fromJson(req.getReader(),String[].class);
-        Optional<User> currentUser = Users.findByEmail(ids[0]);
-        System.out.println(currentUser.get().getEmail());
-        for (int i = 1; i <ids.length ; i++) {
-
-            currentUser.get().addCard(Cards.findById(ids[i]).get());
-            System.out.println(ids[i]);
-        }
-        Users.persist(currentUser.get());
+        String[] cardData = gson.fromJson(req.getReader(),String[].class);
+        Card card=new Card();
+        card.setName(cardData[0]);
+        card.setImageURL(cardData[1]);
+        card.setId(cardData[2]);
+        card.setType(cardData[3]);
+        card.setVariant(cardData[4]);
+        Cards.persist(card);
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-        out.print("{}");
+        out.print("Card Register");
         resp.setStatus(200);
         out.close();
     }
 }
-

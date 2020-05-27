@@ -25,9 +25,7 @@ public class Card {
     private String imageURL;
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
-    private Long id;
+    private String id;
 
     @Column(name = "TYPE")
     private String type;
@@ -60,11 +58,11 @@ public class Card {
         this.imageURL = imageURL;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

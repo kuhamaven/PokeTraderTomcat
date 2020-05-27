@@ -19,8 +19,9 @@ public class User {
   @Column(name = "UID")
   private String id;
 
-  @Column(name = "PASSWORD")
-  private String password;
+
+  @Column(name="photoUrl")
+  private String photoUrl;
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JsonManagedReference
@@ -61,11 +62,11 @@ public class User {
     this.id = id;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public String getPhotoUrl() {
+    return photoUrl;
   }
 
-  public String getPassword() {
-    return password;
+  public void setPhotoUrl(String photoUrl) {
+    this.photoUrl = photoUrl;
   }
 }

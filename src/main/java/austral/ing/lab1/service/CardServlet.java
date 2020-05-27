@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("/card")
-public class CardServlet extends HttpServlet {
+public class CardServlet extends OptionsServlet {
 
 
     @Override

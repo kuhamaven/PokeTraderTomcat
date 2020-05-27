@@ -15,7 +15,7 @@ import static austral.ing.lab1.util.Transactions.tx;
 
 public class Cards {
 
-    public static Optional<Card> findById(Long id){
+    public static Optional<Card> findById(String id){
         return tx(() ->
                 Optional.of(currentEntityManager().find(Card.class, id))
         );
