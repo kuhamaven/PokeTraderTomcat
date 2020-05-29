@@ -1,5 +1,6 @@
 package austral.ing.lab1.entity;
 
+import austral.ing.lab1.model.Card;
 import austral.ing.lab1.model.User;
 import austral.ing.lab1.util.LangUtils;
 
