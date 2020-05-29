@@ -24,6 +24,7 @@ public class RegisterCardServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] cardData = gson.fromJson(req.getReader(),String[].class);
+        if(Cards.findById(cardData[2]).isEmpty()){
         Card card=new Card();
         card.setName(cardData[0]);
         card.setImageURL(cardData[1]);
@@ -38,7 +39,21 @@ public class RegisterCardServlet extends OptionsServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
         out.print("Card Register");
-        resp.setStatus(200);
+        resp.setStatus(201);
         out.close();
+        }
+        else{
+            resp.setContentType("application/json; charset=UTF-8");
+            PrintWriter out = resp.getWriter();
+            resp.setCharacterEncoding("UTF-8");
+            req.setCharacterEncoding("UTF-8");
+            resp.setHeader("Access-Control-Allow-Origin", "*");
+            resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
+            out.print("Id already exists");
+            resp.setStatus(409,"ID ALREADY EXISTS");
+            out.close();
+
+
+        }
     }
 }

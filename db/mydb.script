@@ -46,6 +46,7 @@ GRANT DBA TO SA
 SET SCHEMA SYSTEM_LOBS
 INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','khalil.stessens@ing.austral.edu.ar','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTm4h44Q_8CJepfo-kLmlrrZxhUkQF2QASW-c5cu9WjQIZBlcEA&usqp=CAU')
 INSERT INTO USER VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','sisdz@hotmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_yrp0ya8fakb?alt=media&token=cd9da207-aca4-45c5-8bd0-72f5f8ef1a7c')
 INSERT INTO USER VALUES('abcde','holi@hotmail.com','photourl')
 INSERT INTO CARD VALUES('BW5','https://assets.pokemon.com/assets/cms2/img/cards/web/BW5/BW5_EN_82.png','Blissey','Colorless','Stage 1')
@@ -58,3 +59,12 @@ INSERT INTO CARD VALUES('SwSh3','https://assets.pokemon.com/assets//cms2/img/car
 INSERT INTO CARD VALUES('XY9','https://assets.pokemon.com/assets/cms2/img/cards/web/XY9/XY9_EN_82.png','Clefable','Fairy','Stage 1')
 INSERT INTO USER_COLLECTION VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','BW5')
 INSERT INTO USER_COLLECTION VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','COL1')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','SM115')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','SwSh1')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','XY9')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','SM115')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','HgSs36')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','COL1')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','XY9')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','HgSs36')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','SwSh1')
