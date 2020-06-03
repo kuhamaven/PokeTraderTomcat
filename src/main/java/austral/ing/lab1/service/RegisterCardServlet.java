@@ -39,14 +39,11 @@ public class RegisterCardServlet extends OptionsServlet {
             card.setVariant(cardData[4]);
             Cards.persist(card);
 
-            out.print(gson.toJson("Card Register"));
+            out.print(gson.toJson("Card Registered"));
             resp.setStatus(201);
-
         } else {
-            out.print("Id already exists");
+            out.print(gson.toJson("Id Already exists"));
             resp.sendError(409);
-
-
         }
         out.close();
     }

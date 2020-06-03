@@ -35,7 +35,7 @@ public class RegisterServlet extends OptionsServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-        out.print("User Register");
+        out.print(gson.toJson("User Registered"));
         resp.setStatus(200);
         out.close();
     }

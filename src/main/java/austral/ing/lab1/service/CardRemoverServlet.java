@@ -17,8 +17,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/cardmaker")
-public class CollectionMakerServlet extends OptionsServlet {
+@WebServlet("/cardremover")
+public class CardRemoverServlet extends OptionsServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -26,7 +26,7 @@ public class CollectionMakerServlet extends OptionsServlet {
         String[] ids = gson.fromJson(req.getReader(),String[].class);
         Optional<User> currentUser = Users.findByEmail(ids[0]);
         for (int i = 1; i <ids.length ; i++) {
-            currentUser.get().addCard(Cards.findById(ids[i]).get());
+            currentUser.get().removeCard(Cards.findById(ids[i]).get());
         }
         Users.persist(currentUser.get());
         resp.setContentType("application/json; charset=UTF-8");
@@ -35,9 +35,8 @@ public class CollectionMakerServlet extends OptionsServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-        out.print(gson.toJson("Cards added to collection!"));
+        out.print(gson.toJson("Cards removed from collection!"));
         resp.setStatus(200);
         out.close();
     }
 }
-

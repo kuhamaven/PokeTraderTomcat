@@ -39,13 +39,18 @@ public class User {
   private List<Card> cards = new ArrayList<>();
 
   public void addCard(Card card){
-    cards.add(card);
-    card.getUsers().add(this);
+    if(cards.contains(card)){}
+    else {
+      cards.add(card);
+      card.getUsers().add(this);
+    }
   }
 
   public void removeCard(Card card){
+    if(cards.contains(card)){
     cards.remove(card);
     card.getUsers().remove(this);
+    }
   }
 
   public List<Card> getCards(){

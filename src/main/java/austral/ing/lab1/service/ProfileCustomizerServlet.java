@@ -36,7 +36,7 @@ public class ProfileCustomizerServlet extends OptionsServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-        out.print("Profile Updated");
+        out.print(gson.toJson("Profile Updated"));
         resp.setStatus(200);
         out.close();
 

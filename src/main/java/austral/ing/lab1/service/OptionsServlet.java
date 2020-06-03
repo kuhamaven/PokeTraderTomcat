@@ -27,7 +27,7 @@ public class OptionsServlet extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET,  OPTIONS, PUT");
         resp.setStatus(200);
         PrintWriter out = resp.getWriter();
-        out.print("{}");
+        out.print("");
         out.close();
     }
 
