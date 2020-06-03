@@ -17,7 +17,7 @@ public class Cards {
 
     public static Optional<Card> findById(String id){
         return tx(() ->
-                Optional.of(currentEntityManager().find(Card.class, id))
+                Optional.ofNullable(currentEntityManager().find(Card.class, id))
         );
     }
 

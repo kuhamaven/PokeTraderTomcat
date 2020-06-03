@@ -32,7 +32,7 @@ CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
 ALTER USER SA SET LOCAL TRUE
 CREATE SCHEMA PUBLIC AUTHORIZATION DBA
 SET SCHEMA PUBLIC
-CREATE MEMORY TABLE PUBLIC.USER(UID VARCHAR(255) NOT NULL PRIMARY KEY,EMAIL VARCHAR(255),PHOTOURL VARCHAR(255))
+CREATE MEMORY TABLE PUBLIC.USER(UID VARCHAR(255) NOT NULL PRIMARY KEY,EMAIL VARCHAR(255),PHOTOURL VARCHAR(255),BIO VARCHAR(255),USERNAME VARCHAR(255))
 CREATE MEMORY TABLE PUBLIC.CARD(ID VARCHAR(255) NOT NULL PRIMARY KEY,IMAGE_URL VARCHAR(255),NAME VARCHAR(255),TYPE VARCHAR(255),VARIANT VARCHAR(255))
 CREATE MEMORY TABLE PUBLIC.USER_COLLECTION(UID VARCHAR(255) NOT NULL,ID VARCHAR(255) NOT NULL,CONSTRAINT FKMUGN4VHBRVPA0H4LTC23JQQF9 FOREIGN KEY(ID) REFERENCES PUBLIC.CARD(ID),CONSTRAINT FKCFW6A5L1JNA2UCIQ9QJB652HM FOREIGN KEY(UID) REFERENCES PUBLIC.USER(UID))
 ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1
@@ -46,16 +46,18 @@ GRANT DBA TO SA
 SET SCHEMA SYSTEM_LOBS
 INSERT INTO BLOCKS VALUES(0,2147483647,0)
 SET SCHEMA PUBLIC
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','khalil.stessens@ing.austral.edu.ar','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTm4h44Q_8CJepfo-kLmlrrZxhUkQF2QASW-c5cu9WjQIZBlcEA&usqp=CAU')
-INSERT INTO USER VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','sisdz@hotmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_yrp0ya8fakb?alt=media&token=cd9da207-aca4-45c5-8bd0-72f5f8ef1a7c')
-INSERT INTO USER VALUES('abcde','holi@hotmail.com','photourl')
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a\u000d\u000a','khalil.stessens@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/475-mega.png','I''m the responsible of this mess you are reading!','Kuha')
+INSERT INTO USER VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','sisdz@hotmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_yrp0ya8fakb?alt=media&token=cd9da207-aca4-45c5-8bd0-72f5f8ef1a7c',NULL,NULL)
+INSERT INTO USER VALUES('abcde','holi@hotmail.com','photourl',NULL,NULL)
 INSERT INTO CARD VALUES('BW5','https://assets.pokemon.com/assets/cms2/img/cards/web/BW5/BW5_EN_82.png','Blissey','Colorless','Stage 1')
 INSERT INTO CARD VALUES('COL1','https://assets.pokemon.com/assets/cms2/img/cards/web/COL1/COL1_EN_1.png','Clefable','Colorless','Stage 1')
 INSERT INTO CARD VALUES('EX6','https://assets.pokemon.com/assets/cms2/img/cards/web/EX6/EX6_EN_106.png','Clefable','Colorless','Stage 1')
 INSERT INTO CARD VALUES('HgSs36','https://assets.pokemon.com/assets/cms2/img/cards/web/HGSS1/HGSS1_EN_36.png','Blissey','Colorless','Stage 1')
 INSERT INTO CARD VALUES('SM115','https://assets.pokemon.com/assets/cms2/img/cards/web/SM115/SM115_EN_40.png','Clefable','Fairy','Stage 1')
+INSERT INTO CARD VALUES('SM89','https://assets.pokemon.com/assets/cms2/img/cards/web/SMP/SMP_EN_SM89.png','Zoroark','Dark','Stage 1')
 INSERT INTO CARD VALUES('SwSh1','https://assets.pokemon.com/assets//cms2/img/cards/web/SWSH2/SWSH2_EN_18.png','Rillaboom','Grass','VMax')
 INSERT INTO CARD VALUES('SwSh3','https://assets.pokemon.com/assets//cms2/img/cards/web/SWSH2/SWSH2_EN_19.png','Eldegoss','Grass','V')
+INSERT INTO CARD VALUES('XY155','https://assets.pokemon.com/assets/cms2/img/cards/web/XY5/XY5_EN_155.png','Gardevoir','Fairy','Ex')
 INSERT INTO CARD VALUES('XY9','https://assets.pokemon.com/assets/cms2/img/cards/web/XY9/XY9_EN_82.png','Clefable','Fairy','Stage 1')
 INSERT INTO USER_COLLECTION VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','BW5')
 INSERT INTO USER_COLLECTION VALUES('LKkNzxopJDcHU4ZV5MwA29tn3Ha2','COL1')

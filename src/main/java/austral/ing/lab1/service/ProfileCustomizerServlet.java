@@ -15,28 +15,31 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/profile")
-public class ProfileServlet extends OptionsServlet {
+@WebServlet("/customize")
+public class ProfileCustomizerServlet extends OptionsServlet {
 
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] ids = gson.fromJson(req.getReader(),String[].class);
-        System.out.println(ids[0]);
-        Optional<User> currentUser = Users.findByEmail(ids[0]);
+        String[] userData = gson.fromJson(req.getReader(),String[].class);
+        System.out.println(userData[0]);
+        Optional<User> currentUser = Users.findByEmail(userData[0]);
+        currentUser.get().setUserName(userData[1]);
+        currentUser.get().setBio(userData[2]);
+        currentUser.get().setPhotoUrl(userData[3]);
 
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
-        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-
-        //final Gson gson = new Gson();
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(currentUser.get()); //gson.toJson(cards);
+        Users.persist(currentUser.get());
+        resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
-        out.print(json);
-        out.flush();
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
+        out.print("Profile Updated");
+        resp.setStatus(200);
+        out.close();
+
     }
 
 }

@@ -23,6 +23,12 @@ public class User {
   @Column(name="photoUrl")
   private String photoUrl;
 
+  @Column(name="bio")
+  private String bio;
+
+  @Column(name="userName")
+  private String userName;
+
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JsonManagedReference
   @JoinTable(
@@ -68,5 +74,21 @@ public class User {
 
   public void setPhotoUrl(String photoUrl) {
     this.photoUrl = photoUrl;
+  }
+
+  public String getBio() {
+    return bio;
+  }
+
+  public void setBio(String bio) {
+    this.bio = bio;
+  }
+
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 }
