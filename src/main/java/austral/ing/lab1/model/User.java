@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class User {
 
-  @Column(name = "EMAIL")
+  @Column(name = "Email")
   private String email;
 
   @Id
@@ -20,14 +20,17 @@ public class User {
   private String id;
 
 
-  @Column(name="photoUrl")
+  @Column(name="Photo_Url")
   private String photoUrl;
 
-  @Column(name="bio")
+  @Column(name="Bio")
   private String bio;
 
-  @Column(name="userName")
+  @Column(name="Username")
   private String userName;
+
+  @Column(name="Recently_Modified")
+  private Boolean recentlyModified;
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JsonManagedReference
@@ -41,6 +44,7 @@ public class User {
   public void addCard(Card card){
     if(cards.contains(card)){}
     else {
+      recentlyModified=true;
       cards.add(card);
       card.getUsers().add(this);
     }
@@ -95,5 +99,13 @@ public class User {
 
   public void setUserName(String userName) {
     this.userName = userName;
+  }
+
+  public Boolean getRecentlyModified() {
+    return recentlyModified;
+  }
+
+  public void setRecentlyModified(Boolean recentlyModified) {
+    this.recentlyModified = recentlyModified;
   }
 }

@@ -25,6 +25,7 @@ public class CollectionServlet extends OptionsServlet {
         String[] ids = gson.fromJson(req.getReader(),String[].class);
         System.out.println(ids[0]);
         Optional<User> currentUser = Users.findByEmail(ids[0]);
+        currentUser.get().setRecentlyModified(true);
         final List<Card> cards = currentUser.get().getCards();
 
         resp.setContentType("application/json");

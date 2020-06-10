@@ -34,6 +34,8 @@ public class ProfileServlet extends OptionsServlet {
         //final Gson gson = new Gson();
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(currentUser.get()); //gson.toJson(cards);
+        currentUser.get().setRecentlyModified(false);
+        Users.persist(currentUser.get());
         PrintWriter out = resp.getWriter();
         out.print(json);
         out.flush();

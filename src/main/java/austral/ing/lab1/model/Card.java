@@ -18,19 +18,19 @@ import java.util.List;
 @Entity
 public class Card {
 
-    @Column(name = "NAME")
+    @Column(name = "Name")
     private String name;
 
-    @Column(name = "IMAGE_URL")
+    @Column(name = "Image_Url")
     private String imageURL;
 
     @Id
     private String id;
 
-    @Column(name = "TYPE")
+    @Column(name = "Type")
     private String type;
 
-    @Column(name = "VARIANT")
+    @Column(name = "Variant")
     private String variant;
 
     @ManyToMany(mappedBy = "cards")
