@@ -1,6 +1,7 @@
+
 package austral.ing.lab1.entity;
 
-import austral.ing.lab1.model.Card;
+import austral.ing.lab1.model.Trade;
 import austral.ing.lab1.util.LangUtils;
 
 import javax.persistence.EntityTransaction;
@@ -13,29 +14,22 @@ import static austral.ing.lab1.util.EntityManagers.currentEntityManager;
 import static austral.ing.lab1.util.LangUtils.checkedList;
 import static austral.ing.lab1.util.Transactions.tx;
 
-public class Cards {
+public class Trades {
 
-    public static Optional<Card> findById(String id){
+    public static Optional<Trade> findById(String id){
         return tx(() ->
-                Optional.ofNullable(currentEntityManager().find(Card.class, id))
+                Optional.ofNullable(currentEntityManager().find(Trade.class, id))
         );
     }
 
-    public static Optional<Card> findByName(String name){
-        return tx(() -> LangUtils.<Card>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Card u WHERE u.name LIKE :name")
-                .setParameter("name", name).getResultList()).stream()
-                .findFirst()
-        );
-    }
 
-    public static List<Card> listAll() {
+    public static List<Trade> listAll() {
         return tx(() ->
                 checkedList(currentEntityManager().createQuery("SELECT u FROM Card u").getResultList())
         );
     }
 
-    public static Card persist(Card card) {
+    public static Trade persist(Trade card) {
         final EntityTransaction tx = currentEntityManager().getTransaction();
 
         try {

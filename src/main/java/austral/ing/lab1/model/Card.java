@@ -4,14 +4,7 @@ package austral.ing.lab1.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +29,12 @@ public class Card {
     @ManyToMany(mappedBy = "cards")
     @JsonBackReference
     private List<User> users = new ArrayList<>();
+
+    @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    private List<Trade> trades;
+
+    @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    private List<Bid> bids;
 
     public List<User> getUsers(){
         return users;
@@ -80,5 +79,25 @@ public class Card {
 
     public void setVariant(String variant) {
         this.variant = variant;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Trade> getTrades() {
+        return trades;
+    }
+
+    public void setTrades(List<Trade> trades) {
+        this.trades = trades;
+    }
+
+    public List<Bid> getBids() {
+        return bids;
+    }
+
+    public void setBids(List<Bid> bids) {
+        this.bids = bids;
     }
 }

@@ -41,6 +41,14 @@ public class User {
   )
   private List<Card> cards = new ArrayList<>();
 
+  @OneToMany(mappedBy ="user",cascade = {CascadeType.PERSIST, CascadeType.ALL})
+  private List<Bid> bids = new ArrayList<>();
+
+
+  @OneToMany(mappedBy = "host", cascade = CascadeType.ALL, orphanRemoval = true)
+  @JsonManagedReference
+  private List<Trade> trades = new ArrayList<>();
+
   public void addCard(Card card){
     if(cards.contains(card)){}
     else {
@@ -56,6 +64,7 @@ public class User {
     card.getUsers().remove(this);
     }
   }
+
 
   public List<Card> getCards(){
     return cards;
@@ -107,5 +116,25 @@ public class User {
 
   public void setRecentlyModified(Boolean recentlyModified) {
     this.recentlyModified = recentlyModified;
+  }
+
+  public void setCards(List<Card> cards) {
+    this.cards = cards;
+  }
+
+  public List<Bid> getBids() {
+    return bids;
+  }
+
+  public void setBids(List<Bid> bids) {
+    this.bids = bids;
+  }
+
+  public List<Trade> getTrades() {
+    return trades;
+  }
+
+  public void setTrades(List<Trade> trades) {
+    this.trades = trades;
   }
 }
