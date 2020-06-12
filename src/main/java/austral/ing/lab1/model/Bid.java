@@ -15,6 +15,7 @@ public class Bid {
     private Trade trade;// si es null fue rechazado
 
     @Id
+    @Column(name="BID")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;

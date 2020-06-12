@@ -31,10 +31,14 @@ public class Card {
     private List<User> users = new ArrayList<>();
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
-    private List<Trade> trades;
+    private List<Trade> tradesWhereOffered;
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
     private List<Bid> bids;
+
+    @ManyToMany(mappedBy ="willingToAccept")
+    @JsonBackReference
+    private List<Trade> tradesWhereAccepted;
 
     public List<User> getUsers(){
         return users;
@@ -85,12 +89,20 @@ public class Card {
         this.users = users;
     }
 
-    public List<Trade> getTrades() {
-        return trades;
+    public List<Trade> getTradesWhereOffered() {
+        return tradesWhereOffered;
     }
 
-    public void setTrades(List<Trade> trades) {
-        this.trades = trades;
+    public void setTradesWhereOffered(List<Trade> tradesWhereOffered) {
+        this.tradesWhereOffered = tradesWhereOffered;
+    }
+
+    public List<Trade> getTradesWhereAccepted() {
+        return tradesWhereAccepted;
+    }
+
+    public void setTradesWhereAccepted(List<Trade> tradesWhereAccepted) {
+        this.tradesWhereAccepted = tradesWhereAccepted;
     }
 
     public List<Bid> getBids() {

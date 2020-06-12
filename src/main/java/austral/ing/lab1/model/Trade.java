@@ -1,5 +1,6 @@
 package austral.ing.lab1.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Trade {
     private Card card;
 
     @Id
+    @Column(name="TID")
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private Long id;
@@ -28,14 +30,20 @@ public class Trade {
     @Column(name = "Condition")
     private String condition;
 
-    @ManyToMany(mappedBy = "Willing_to_Accept") //cartas que el host acepta
-    @JsonBackReference
-    private List<Card> cards = new ArrayList<>();
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonManagedReference
+    @JoinTable(
+            name = "Requested_Cards",
+            joinColumns = { @JoinColumn(name = "TID")},
+            inverseJoinColumns = { @JoinColumn(name = "ID")}
+    )
+    private List<Card> willingToAccept = new ArrayList<>();
 
     @Column(name="Is_Open")
     private boolean isOpen=true;
 
-    @OneToMany(mappedBy = "ID", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "trade", cascade = CascadeType.ALL)
     private List<Bid> bidders;
 
     @Column(name="Host_Verification") //El que publico el trade confirma que se realizo de forma exitosa
@@ -84,12 +92,12 @@ public class Trade {
         this.condition = condition;
     }
 
-    public List<Card> getCards() {
-        return cards;
+    public List<Card> getWillingToAccept() {
+        return willingToAccept;
     }
 
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
+    public void setWillingToAccept(List<Card> cards) {
+        this.willingToAccept = cards;
     }
 
     public boolean isOpen() {
@@ -123,4 +131,5 @@ public class Trade {
     public void setBidderVerification(boolean bidderVerification) {
         this.bidderVerification = bidderVerification;
     }
+
 }
