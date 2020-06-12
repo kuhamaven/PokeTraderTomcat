@@ -1,8 +1,10 @@
 package austral.ing.lab1.service;
 
+import austral.ing.lab1.entity.Bids;
 import austral.ing.lab1.entity.Cards;
 import austral.ing.lab1.entity.Trades;
 import austral.ing.lab1.entity.Users;
+import austral.ing.lab1.model.Bid;
 import austral.ing.lab1.model.Card;
 import austral.ing.lab1.model.Trade;
 import austral.ing.lab1.model.User;
@@ -24,36 +26,30 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
-@WebServlet("/createtrade")
-public class TradeServlet extends OptionsServlet {
+@WebServlet("/createbid")
+public class BidServlet extends OptionsServlet {
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] tradeData = gson.fromJson(req.getReader(), String[].class);
+        String[] bidData = gson.fromJson(req.getReader(), String[].class);
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-            Trade trade = new Trade();
-            trade.setHost(Users.findById(tradeData[0]).get());
-            trade.setCard(Cards.findById(tradeData[1]).get());
-            trade.setCondition(tradeData[2]);
-            int length=tradeData.length;
-            List<Card> cards= new ArrayList<>((length-3));
-        for (int i = 3; i <length ; i++) {
-            cards.add(Cards.findById(tradeData[i]).get());
-        }
-           trade.setWillingToAccept(cards);
-            Date date=Calendar.getInstance().getTime();
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-            trade.setOpeningDate(dateFormat.format(date));
-            Trades.persist(trade);
+        Bid bid = new Bid();
+        bid.setUser(Users.findById(bidData[0]).get());
+        bid.setCard(Cards.findById(bidData[1]).get());
+        bid.setTrade(Trades.findById(Long.parseLong(bidData[2])).get());
+        Date date=Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        bid.setDate(dateFormat.format(date));
+        Bids.persist(bid);
 
-            out.print(gson.toJson("Trade Created"));
-            resp.setStatus(201);
+        out.print(gson.toJson("Bid Submitted"));
+        resp.setStatus(201);
 
         out.close();
     }

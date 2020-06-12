@@ -2,6 +2,7 @@ package austral.ing.lab1.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -31,9 +32,11 @@ public class Card {
     private List<User> users = new ArrayList<>();
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Trade> tradesWhereOffered;
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Bid> bids;
 
     @ManyToMany(mappedBy ="willingToAccept")

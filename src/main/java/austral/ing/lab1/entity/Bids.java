@@ -15,7 +15,7 @@ import static austral.ing.lab1.util.Transactions.tx;
 
 public class Bids {
 
-    public static Optional<Bid> findById(String id){
+    public static Optional<Bid> findById(Long id){
         return tx(() ->
                 Optional.ofNullable(currentEntityManager().find(Bid.class, id))
         );
@@ -24,7 +24,7 @@ public class Bids {
 
     public static List<Bid> listAll() {
         return tx(() ->
-                checkedList(currentEntityManager().createQuery("SELECT u FROM Card u").getResultList())
+                checkedList(currentEntityManager().createQuery("SELECT u FROM Bid u").getResultList())
         );
     }
 

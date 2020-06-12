@@ -10,11 +10,13 @@ import java.util.List;
 @Entity
 public class Trade {
     @ManyToOne()
+    @JsonManagedReference
     @JoinColumn(name = "UID")// esta sentencia vincula al trade con su host por la columna UID
                             //si bien host es un user no tengo atodo el usuario adentro
     private User host;
 
     @ManyToOne()
+    @JsonBackReference
     @JoinColumn(name = "ID")
     private Card card;
 
@@ -44,6 +46,7 @@ public class Trade {
     private boolean isOpen=true;
 
     @OneToMany(mappedBy = "trade", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Bid> bidders;
 
     @Column(name="Host_Verification") //El que publico el trade confirma que se realizo de forma exitosa
