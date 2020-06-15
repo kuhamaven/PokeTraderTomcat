@@ -9,11 +9,8 @@ import java.util.List;
 
 @Entity
 public class Trade {
-    @ManyToOne()
-    @JsonManagedReference
-    @JoinColumn(name = "UID")// esta sentencia vincula al trade con su host por la columna UID
-                            //si bien host es un user no tengo atodo el usuario adentro
-    private User host;
+
+    private String userId;
 
     @ManyToOne()
     @JsonBackReference
@@ -55,12 +52,12 @@ public class Trade {
     @Column(name="Bidder_Verification")//El que oferto por el trade confirma que se realizo de forma exitosa
     private boolean bidderVerification;
 
-    public User getHost() {
-        return host;
+    public String getHostId() {
+        return userId;
     }
 
-    public void setHost(User host) {
-        this.host = host;
+    public void setHostId(String host) {
+        this.userId= host;
     }
 
     public Card getCard() {

@@ -9,9 +9,8 @@ import java.util.List;
 
 @Entity
 public class Bid {
-    @ManyToOne()
-    @JsonManagedReference
-    private User user;
+
+    private String userId;
 
     @Column(name="Date")
     private String date;
@@ -31,12 +30,12 @@ public class Bid {
     @JoinColumn(name = "ID")
     private Card card;
 
-    public User getUser() {
-        return user;
+    public String getUser() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String user) {
+        this.userId = user;
     }
 
     public Trade getTrade() {

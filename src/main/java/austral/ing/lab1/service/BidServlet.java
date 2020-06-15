@@ -40,7 +40,7 @@ public class BidServlet extends OptionsServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
         Bid bid = new Bid();
-        bid.setUser(Users.findById(bidData[0]).get());
+        bid.setUser(Users.findById(bidData[0]).get().getId());
         bid.setCard(Cards.findById(bidData[1]).get());
         bid.setTrade(Trades.findById(Long.parseLong(bidData[2])).get());
         Date date=Calendar.getInstance().getTime();

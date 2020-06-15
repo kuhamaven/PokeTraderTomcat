@@ -38,7 +38,7 @@ public class TradeServlet extends OptionsServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
             Trade trade = new Trade();
-            trade.setHost(Users.findById(tradeData[0]).get());
+            trade.setHostId(Users.findById(tradeData[0]).get().getId());
             trade.setCard(Cards.findById(tradeData[1]).get());
             trade.setCondition(tradeData[2]);
             int length=tradeData.length;

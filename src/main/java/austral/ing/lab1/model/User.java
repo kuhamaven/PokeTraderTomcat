@@ -42,15 +42,6 @@ public class User {
   )
   private List<Card> cards = new ArrayList<>();
 
-  @OneToMany(mappedBy ="user",cascade = {CascadeType.PERSIST, CascadeType.ALL})
-  @JsonBackReference
-  private List<Bid> bids = new ArrayList<>();
-
-
-  @OneToMany(mappedBy = "host", cascade = CascadeType.ALL, orphanRemoval = true)
-  @JsonBackReference
-  private List<Trade> trades = new ArrayList<>();
-
   public void addCard(Card card){
     if(cards.contains(card)){}
     else {
@@ -124,19 +115,4 @@ public class User {
     this.cards = cards;
   }
 
-  public List<Bid> getBids() {
-    return bids;
-  }
-
-  public void setBids(List<Bid> bids) {
-    this.bids = bids;
-  }
-
-  public List<Trade> getTrades() {
-    return trades;
-  }
-
-  public void setTrades(List<Trade> trades) {
-    this.trades = trades;
-  }
 }

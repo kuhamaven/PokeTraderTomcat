@@ -23,21 +23,30 @@ public class ProfileServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] ids = gson.fromJson(req.getReader(),String[].class);
-        System.out.println(ids[0]);
         Optional<User> currentUser = Users.findByEmail(ids[0]);
-
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-
-        //final Gson gson = new Gson();
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(currentUser.get()); //gson.toJson(cards);
-        currentUser.get().setRecentlyModified(false);
-        Users.persist(currentUser.get());
         PrintWriter out = resp.getWriter();
-        out.print(json);
+        if(!currentUser.isEmpty()) {
+            //final Gson gson = new Gson();
+            ObjectMapper objectMapper = new ObjectMapper();
+            String json = objectMapper.writeValueAsString(currentUser.get()); //gson.toJson(cards);
+            currentUser.get().setRecentlyModified(false);
+            Users.persist(currentUser.get());
+            out.print(json);
+            resp.setStatus(201);
+        }
+        else{
+            ObjectMapper objectMapper = new ObjectMapper();
+            User user= new User();
+            user.setEmail("null field");
+            String json = objectMapper.writeValueAsString(user); //gson.toJson(cards);
+            out.print(json);
+            resp.setStatus(201);
+        }
+
         out.flush();
     }
 
