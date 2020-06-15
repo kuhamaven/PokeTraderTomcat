@@ -30,6 +30,13 @@ public class Trades {
         );
     }
 
+    public static List<Trade> listAllHostTrades(String hostId) {
+        return tx(() ->
+                checkedList(currentEntityManager().createQuery("SELECT u FROM Trade u  WHERE u.userId=hostId").getResultList())
+
+        );
+    }
+
     public static Trade persist(Trade card) {
         final EntityTransaction tx = currentEntityManager().getTransaction();
 

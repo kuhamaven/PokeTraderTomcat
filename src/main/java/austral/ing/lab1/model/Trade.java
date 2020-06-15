@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 public class Trade {
 
+    @Column(name="UID")
     private String userId;
 
     @ManyToOne()
