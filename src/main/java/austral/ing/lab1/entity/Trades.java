@@ -1,6 +1,7 @@
 
 package austral.ing.lab1.entity;
 
+import austral.ing.lab1.model.Card;
 import austral.ing.lab1.model.Trade;
 import austral.ing.lab1.util.LangUtils;
 
@@ -30,11 +31,14 @@ public class Trades {
         );
     }
 
-    public static List<Trade> listAllHostTrades(String hostId) {
-        return tx(() ->
-                checkedList(currentEntityManager().createQuery("SELECT u FROM Trade u  WHERE u.userId=hostId").getResultList())
+    public static List<Trade> listAllHostTrades(String userId) {
+
+        return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
+                .createQuery("SELECT u FROM Trade u  WHERE u.userId LIKE :userId")
+                .setParameter("userId", userId).getResultList())
 
         );
+
     }
 
     public static Trade persist(Trade card) {
