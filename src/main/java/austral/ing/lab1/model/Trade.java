@@ -14,7 +14,7 @@ public class Trade {
     private String userId;
 
     @ManyToOne()
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "ID")
     private Card card;
 
