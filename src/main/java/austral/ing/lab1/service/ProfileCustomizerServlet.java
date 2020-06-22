@@ -25,9 +25,9 @@ public class ProfileCustomizerServlet extends OptionsServlet {
         String[] userData = gson.fromJson(req.getReader(),String[].class);
         System.out.println(userData[0]);
         Optional<User> currentUser = Users.findByEmail(userData[0]);
-        currentUser.get().setUserName(userData[1]);
-        currentUser.get().setBio(userData[2]);
-        currentUser.get().setPhotoUrl(userData[3]);
+        if(!(userData[1].length()<1)){currentUser.get().setUserName(userData[1]);}
+        if(!(userData[2].length()<1)){currentUser.get().setBio(userData[2]);}
+        if(!(userData[3].length()<1)){currentUser.get().setPhotoUrl(userData[3]);}
 
         Users.persist(currentUser.get());
         resp.setContentType("application/json; charset=UTF-8");

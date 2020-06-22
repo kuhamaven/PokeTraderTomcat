@@ -1,41 +1,116 @@
+/*C9*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','What''s up dude?','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=3198bf37-30d1-4114-9403-5ba9694f680b',FALSE,'Kuha')
+COMMIT
+/*C12*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C9*/DISCONNECT
+/*C10*/SET SCHEMA PUBLIC
+DISCONNECT
 /*C14*/SET SCHEMA PUBLIC
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',FALSE,NULL)
-COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',TRUE,NULL)
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-3')
-COMMIT
-DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='XY11-3'
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-3')
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY155')
-COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',FALSE,NULL)
-COMMIT
-INSERT INTO TRADE VALUES(3,FALSE,'Near Mint',FALSE,TRUE,'17-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-3')
-INSERT INTO REQUESTED_CARDS VALUES(3,'XY11-30')
-COMMIT
-INSERT INTO CARD VALUES('H','H','H','H','H')
-COMMIT
+DISCONNECT
 /*C15*/SET SCHEMA PUBLIC
-INSERT INTO CARD VALUES('','','','','')
-COMMIT
-/*C14*/DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=b57085f1-3db8-4bcf-8bef-ea0f5643a946',FALSE,'')
-COMMIT
-/*C19*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C18*/SET SCHEMA PUBLIC
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','holi todo bien','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=aaad4123-910b-487e-b6b2-60f0d0803310',FALSE,'Sofu')
-COMMIT
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+DISCONNECT
 /*C20*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C17*/SET SCHEMA PUBLIC
+/*C21*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C16*/SET SCHEMA PUBLIC
+/*C22*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type is best type.','khalil.stessens@ing.austral.edu.ar','',FALSE,'')
+COMMIT
 DISCONNECT
-/*C14*/DISCONNECT
-/*C15*/DISCONNECT
-/*C18*/DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=9a78d91a-34a7-4542-8948-a160f49df36b',FALSE,'Kuha')
+COMMIT
+/*C24*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=5aecfbb6-35f6-4cfd-8b25-2b8584cca10b',FALSE,'K')
+COMMIT
+DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/DISCONNECT
+/*C27*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','AA','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=5aecfbb6-35f6-4cfd-8b25-2b8584cca10b',FALSE,'K')
+COMMIT
+/*C29*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','AA','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=5aecfbb6-35f6-4cfd-8b25-2b8584cca10b',FALSE,'Kuha')
+COMMIT
+/*C28*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=5aecfbb6-35f6-4cfd-8b25-2b8584cca10b',FALSE,'Kuha')
+COMMIT
+/*C30*/SET SCHEMA PUBLIC
+DELETE FROM CARD WHERE ID='H'
+DELETE FROM CARD WHERE ID=''
+COMMIT
+/*C31*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C27*/DISCONNECT
+/*C29*/DISCONNECT
+/*C28*/DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+INSERT INTO TRADE VALUES(4,FALSE,'Near Mint',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
+INSERT INTO REQUESTED_CARDS VALUES(4,'XY11-31')
+INSERT INTO REQUESTED_CARDS VALUES(4,'XY11-38')
+INSERT INTO REQUESTED_CARDS VALUES(4,'XY11-32')
+COMMIT
+INSERT INTO TRADE VALUES(5,FALSE,'Played',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
+INSERT INTO REQUESTED_CARDS VALUES(5,'XY11-3')
+INSERT INTO REQUESTED_CARDS VALUES(5,'XY11-38')
+COMMIT
+INSERT INTO TRADE VALUES(6,FALSE,'Mint',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
+INSERT INTO REQUESTED_CARDS VALUES(6,'XY155')
+INSERT INTO REQUESTED_CARDS VALUES(6,'SwSh1')
+COMMIT
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=5aecfbb6-35f6-4cfd-8b25-2b8584cca10b',TRUE,'Kuha')
+DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-73 Promo'
+DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-93 Promo'
+DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='XY11-30'
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
+INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
+COMMIT
+/*C33*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=5aecfbb6-35f6-4cfd-8b25-2b8584cca10b',FALSE,'Kuha')
+COMMIT
+/*C34*/SET SCHEMA PUBLIC
+INSERT INTO TRADE VALUES(7,FALSE,'Heavily Played',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
+INSERT INTO REQUESTED_CARDS VALUES(7,'XY11-3')
+COMMIT
+INSERT INTO TRADE VALUES(8,FALSE,'Mint',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
+INSERT INTO REQUESTED_CARDS VALUES(8,'XY11-32')
+INSERT INTO REQUESTED_CARDS VALUES(8,'XY155')
+INSERT INTO REQUESTED_CARDS VALUES(8,'XY11-30')
+COMMIT
+INSERT INTO TRADE VALUES(9,FALSE,'Mint',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
+INSERT INTO REQUESTED_CARDS VALUES(9,'XY11-31')
+INSERT INTO REQUESTED_CARDS VALUES(9,'XY11-3')
+INSERT INTO REQUESTED_CARDS VALUES(9,'XY11-38')
+INSERT INTO REQUESTED_CARDS VALUES(9,'XY11-30')
+INSERT INTO REQUESTED_CARDS VALUES(9,'BW-93 Promo')
+INSERT INTO REQUESTED_CARDS VALUES(9,'SwSh1')
+COMMIT
+/*C33*/INSERT INTO TRADE VALUES(10,FALSE,'Heavily Played',FALSE,TRUE,'22-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
+INSERT INTO REQUESTED_CARDS VALUES(10,'XY11-32')
+COMMIT
+/*C34*/DISCONNECT
+/*C32*/DISCONNECT
+/*C33*/DISCONNECT
