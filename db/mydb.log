@@ -1,82 +1,41 @@
-/*C9*/SET SCHEMA PUBLIC
-set schema PUBLIC
-drop table BID
-/*C10*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C11*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C9*/drop table REQUESTED_CARDS
-drop table TRADE
-drop table USER_COLLECTION
-drop table CARD
-drop table USER
-/*C12*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
-create table Bid (BID bigint not null, Date varchar(255), userId varchar(255), ID varchar(255), trade_TID bigint, primary key (BID))
-create table Card (id varchar(255) not null, Image_Url varchar(255), Name varchar(255), Type varchar(255), Variant varchar(255), primary key (id))
-create table Requested_Cards (TID bigint not null, ID varchar(255) not null)
-create table Trade (TID bigint not null, Bidder_Verification boolean, Condition varchar(255), Host_Verification boolean, Is_Open boolean, Opening_Date varchar(255), UID varchar(255), ID varchar(255), primary key (TID))
-create table User (UID varchar(255) not null, Bio varchar(255), Email varchar(255), Photo_Url varchar(255), Recently_Modified boolean, Username varchar(255), primary key (UID))
-create table User_Collection (UID varchar(255) not null, ID varchar(255) not null)
-alter table Bid add constraint FK2s72jwp0qedqimorwx81qqo5e foreign key (ID) references Card
-alter table Bid add constraint FK6krurrr631ypany3yk7fjolj8 foreign key (trade_TID) references Trade
-alter table Requested_Cards add constraint FKr7q3jxjh22baotipqcv302kkc foreign key (ID) references Card
-alter table Requested_Cards add constraint FKmlael2v3ncryot53fhipe0gii foreign key (TID) references Trade
-alter table Trade add constraint FKie0k2p4jcmdk8tlavjpt3t05m foreign key (ID) references Card
-alter table User_Collection add constraint FKmugn4vhbrvpa0h4ltc23jqqf9 foreign key (ID) references Card
-alter table User_Collection add constraint FKcfw6a5l1jna2uciq9qjb652hm foreign key (UID) references User
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',NULL,NULL)
-COMMIT
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a',NULL,'khalil.stessens@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/000_14.png',NULL,NULL)
-COMMIT
-INSERT INTO CARD VALUES('SwSh1','https://assets.pokemon.com/assets//cms2/img/cards/web/SWSH2/SWSH2_EN_18.png','Rillaboom','Grass','VMax')
-COMMIT
-INSERT INTO CARD VALUES('BW-93 Promo','https://assets.pokemon.com/assets/cms2/img/cards/web/BWP/BWP_EN_BW93.png','Umbreon','Dark','Stage 1')
-COMMIT
-INSERT INTO CARD VALUES('XY155','https://assets.pokemon.com/assets/cms2/img/cards/web/XY5/XY5_EN_155.png','Gardevoir','Fairy','EX')
-COMMIT
-INSERT INTO CARD VALUES('BW-73 Promo','https://assets.pokemon.com/assets/cms2/img/cards/web/BWP/BWP_EN_BW73.png','Darkrai','Dark','Basic')
-COMMIT
-INSERT INTO CARD VALUES('XY11-30','https://assets.pokemon.com/assets/cms2/img/cards/web/XY11/XY11_EN_30.png','Oshawott','Water','Stage 1')
-COMMIT
-INSERT INTO CARD VALUES('XY11-3','https://assets.pokemon.com/assets/cms2/img/cards/web/XY11/XY11_EN_3.png','Hoppip','Grass','Basic')
-COMMIT
-INSERT INTO CARD VALUES('XY11-32','https://assets.pokemon.com/assets/cms2/img/cards/web/XY11/XY11_EN_32.png','Samurott','Water','Stage 2')
-COMMIT
-INSERT INTO CARD VALUES('XY11-31','https://assets.pokemon.com/assets/cms2/img/cards/web/XY11/XY11_EN_31.png','Dewott','Water','Stage 1')
-COMMIT
-INSERT INTO CARD VALUES('XY11-38','https://assets.pokemon.com/assets/cms2/img/cards/web/XY11/XY11_EN_38.png','Mareep','Electric','Basic')
-COMMIT
-DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a',NULL,'khalil.stessens@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/000_14.png',TRUE,NULL)
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
-COMMIT
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-73 Promo'
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
-COMMIT
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-73 Promo'
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-93 Promo'
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
-COMMIT
 /*C14*/SET SCHEMA PUBLIC
-DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a',NULL,'khalil.stessens@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/000_14.png',FALSE,NULL)
+DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',FALSE,NULL)
+COMMIT
+DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',TRUE,NULL)
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-3')
+COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='XY11-3'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-3')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY155')
+COMMIT
+DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2',NULL,'sofia.sidanez@ing.austral.edu.ar','https://www.pkparaiso.com/imagenes/shuffle/sprites/242_01.png',FALSE,NULL)
+COMMIT
+INSERT INTO TRADE VALUES(3,FALSE,'Near Mint',FALSE,TRUE,'17-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-3')
+INSERT INTO REQUESTED_CARDS VALUES(3,'XY11-30')
+COMMIT
+INSERT INTO CARD VALUES('H','H','H','H','H')
 COMMIT
 /*C15*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/INSERT INTO TRADE VALUES(1,FALSE,'Near Mint',FALSE,TRUE,'16-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
-INSERT INTO REQUESTED_CARDS VALUES(1,'XY11-31')
+INSERT INTO CARD VALUES('','','','','')
 COMMIT
-/*C18*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/DISCONNECT
-/*C14*/DISCONNECT
+/*C14*/DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=b57085f1-3db8-4bcf-8bef-ea0f5643a946',FALSE,'')
+COMMIT
 /*C19*/SET SCHEMA PUBLIC
-INSERT INTO TRADE VALUES(2,FALSE,'Mint',FALSE,TRUE,'16-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
-INSERT INTO REQUESTED_CARDS VALUES(2,'XY11-31')
-INSERT INTO REQUESTED_CARDS VALUES(2,'BW-73 Promo')
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','holi todo bien','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=aaad4123-910b-487e-b6b2-60f0d0803310',FALSE,'Sofu')
 COMMIT
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C14*/DISCONNECT
+/*C15*/DISCONNECT
+/*C18*/DISCONNECT
