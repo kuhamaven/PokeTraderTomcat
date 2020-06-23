@@ -1,6 +1,27 @@
-/*C11*/SET SCHEMA PUBLIC
+/*C5*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
+/*C7*/SET SCHEMA PUBLIC
+set schema PUBLIC
+drop table BID
+/*C6*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C8*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C9*/SET SCHEMA PUBLIC
+create table Bid (BID bigint not null, accepted boolean not null, Date varchar(255), hostEmail varchar(255), userId varchar(255), ID varchar(255), trade_TID bigint, primary key (BID))
+alter table Bid add constraint FK2s72jwp0qedqimorwx81qqo5e foreign key (ID) references Card
+alter table Bid add constraint FK6krurrr631ypany3yk7fjolj8 foreign key (trade_TID) references Trade
+DISCONNECT
+/*C10*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+alter table Bid add column rejected boolean not null
 DISCONNECT
 /*C14*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+INSERT INTO BID VALUES(1,FALSE,'23-06-2020','khalil.stessens@ing.austral.edu.ar','j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-30',2,FALSE)
+COMMIT
+/*C16*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C13*/DISCONNECT
