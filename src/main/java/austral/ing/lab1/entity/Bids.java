@@ -1,6 +1,7 @@
 package austral.ing.lab1.entity;
 
 import austral.ing.lab1.model.Bid;
+import austral.ing.lab1.model.Trade;
 import austral.ing.lab1.util.LangUtils;
 
 import javax.persistence.EntityTransaction;
@@ -19,6 +20,16 @@ public class Bids {
         return tx(() ->
                 Optional.ofNullable(currentEntityManager().find(Bid.class, id))
         );
+    }
+
+    public static List<Bid> listAllUserBids(String userId) {
+
+        return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
+                .createQuery("SELECT u FROM Bid u  WHERE u.userId LIKE :userId")
+                .setParameter("userId", userId).getResultList())
+
+        );
+
     }
 
 
