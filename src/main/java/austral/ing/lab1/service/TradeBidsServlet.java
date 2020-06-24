@@ -31,6 +31,11 @@ public class TradeBidsServlet extends OptionsServlet {
         Gson gson = new Gson();
         String[] tradeId = gson.fromJson(req.getReader(),String[].class);
         final List<Bid> myBids = austral.ing.lab1.entity.Bids.listAllTradeBids(Long.parseLong(tradeId[0]));
+        List<Bid> pendingBids = new ArrayList<>();
+        for (int i = 0; i <myBids.size() ; i++) {
+            if(myBids.get(i).isRejected()){continue;}
+            else pendingBids.add(myBids.get(i));
+        }
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
@@ -39,7 +44,7 @@ public class TradeBidsServlet extends OptionsServlet {
 
         //final Gson gson = new Gson();
         ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(myBids); //gson.toJson(cards);
+        String json = objectMapper.writeValueAsString(pendingBids); //gson.toJson(cards);
         PrintWriter out = resp.getWriter();
         out.print(json);
         out.flush();
