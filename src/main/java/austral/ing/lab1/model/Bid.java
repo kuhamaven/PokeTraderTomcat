@@ -1,6 +1,7 @@
 package austral.ing.lab1.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonMerge;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -21,9 +22,8 @@ public class Bid {
     @Column(name="Date")
     private String date;
 
-    @ManyToOne()
-    @JsonBackReference
-    private Trade trade;// si es null fue rechazado
+
+    private Long tradeId;// si es null fue rechazado
 
     @Id
     @Column(name="BID")
@@ -36,20 +36,12 @@ public class Bid {
     @JoinColumn(name = "ID")
     private Card card;
 
-    public String getUser() {
-        return userId;
+    public Long getTradeId() {
+        return tradeId;
     }
 
-    public void setUser(String user) {
-        this.userId = user;
-    }
-
-    public Trade getTrade() {
-        return trade;
-    }
-
-    public void setTrade(Trade trade) {
-        this.trade = trade;
+    public void setTradeId(Long tradeId) {
+        this.tradeId = tradeId;
     }
 
     public Long getId() {

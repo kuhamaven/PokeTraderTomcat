@@ -43,9 +43,6 @@ public class Trade {
     @Column(name="Is_Open")
     private boolean isOpen=true;
 
-    @OneToMany(mappedBy = "trade", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Bid> bidders;
 
     @Column(name="Host_Verification") //El que publico el trade confirma que se realizo de forma exitosa
     private boolean hostVerification;
@@ -107,14 +104,6 @@ public class Trade {
 
     public void setOpen(boolean open) {
         isOpen = open;
-    }
-
-    public List<Bid> getBidders() {
-        return bidders;
-    }
-
-    public void setBidders(List<Bid> bidders) {
-        this.bidders = bidders;
     }
 
     public boolean isHostVerification() {
