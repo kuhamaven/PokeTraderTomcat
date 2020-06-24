@@ -41,6 +41,16 @@ public class Trades {
 
     }
 
+    public static List<Trade> exploreTrades(String userId) {
+
+        return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
+                .createQuery("SELECT u FROM Trade u  WHERE u.userId NOT LIKE :userId")
+                .setParameter("userId", userId).getResultList())
+
+        );
+
+    }
+
     public static Trade persist(Trade card) {
         final EntityTransaction tx = currentEntityManager().getTransaction();
 
