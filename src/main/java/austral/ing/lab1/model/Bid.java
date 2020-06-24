@@ -15,6 +15,8 @@ public class Bid {
 
     private String hostEmail;
 
+    private String bidderEmail;
+
     private boolean accepted;
 
     private boolean rejected;
@@ -98,5 +100,13 @@ public class Bid {
 
     public void setRejected(boolean rejected) {
         this.rejected = rejected;
+    }
+
+    public String getBidderEmail() {
+        return bidderEmail;
+    }
+
+    public void setBidderEmail(String bidderEmail) {
+        this.bidderEmail = bidderEmail;
     }
 }

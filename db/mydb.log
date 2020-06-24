@@ -1,4 +1,17 @@
-/*C14*/SET SCHEMA PUBLIC
+/*C6*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C15*/SET SCHEMA PUBLIC
+/*C7*/SET SCHEMA PUBLIC
+set schema PUBLIC
+drop table BID
+/*C8*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C9*/SET SCHEMA PUBLIC
+create table Bid (BID bigint not null, accepted boolean not null, bidderEmail varchar(255), Date varchar(255), hostEmail varchar(255), rejected boolean not null, tradeId bigint, userId varchar(255), ID varchar(255), primary key (BID))
+alter table Bid add constraint FK2s72jwp0qedqimorwx81qqo5e foreign key (ID) references Card
+/*C10*/SET SCHEMA PUBLIC
+INSERT INTO BID VALUES(1,FALSE,'khalil.stessens@ing.austral.edu.ar','24-06-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
+COMMIT
+/*C9*/INSERT INTO BID VALUES(2,FALSE,'sofia.sidanez@ing.austral.edu.ar','24-06-2020','khalil.stessens@ing.austral.edu.ar',FALSE,1,'j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-3')
+COMMIT
+/*C10*/INSERT INTO BID VALUES(3,FALSE,'sofia.sidanez@ing.austral.edu.ar','24-06-2020','khalil.stessens@ing.austral.edu.ar',FALSE,1,'j7NTvpniStbxeUhHpEzUWW2I0iy2','XY155')
+COMMIT

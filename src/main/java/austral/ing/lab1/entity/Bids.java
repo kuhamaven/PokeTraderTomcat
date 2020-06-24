@@ -31,6 +31,16 @@ public class Bids {
         );
 
     }
+    public static List<Bid> listAllTradeBids(long tradeId) {
+
+        return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
+                .createQuery("SELECT u FROM Bid u  WHERE u.tradeId=:tradeId")
+                .setParameter("tradeId", tradeId).getResultList())
+
+        );
+
+    }
+
 
 
     public static List<Bid> listAll() {
