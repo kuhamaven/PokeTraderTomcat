@@ -62,3 +62,97 @@ DELETE FROM BID WHERE BID=2
 INSERT INTO BID VALUES(2,TRUE,'sofia.sidanez@ing.austral.edu.ar','24-06-2020','khalil.stessens@ing.austral.edu.ar',FALSE,1,'j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-3')
 COMMIT
 DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=b5b3e4f6-9a5b-4b3f-bdd3-624e8b453f70',FALSE,'Kuha')
+COMMIT
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=b5b3e4f6-9a5b-4b3f-bdd3-624e8b453f70',FALSE,'Khalil')
+COMMIT
+/*C16*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=b5b3e4f6-9a5b-4b3f-bdd3-624e8b453f70',FALSE,'Kuha')
+COMMIT
+/*C15*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=2264e311-8aaa-450b-ba68-aa9fab4b56d8',FALSE,'Khalil')
+COMMIT
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+/*C16*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'K')
+COMMIT
+/*C15*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'asdsad')
+COMMIT
+/*C14*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+/*C15*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Asd')
+COMMIT
+/*C16*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Asddasas')
+COMMIT
+/*C14*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+/*C16*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type > Other types','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'fsdfdfdsf')
+COMMIT
+/*C15*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','asdsadasdsa','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'fsdfdfdsf')
+COMMIT
+/*C16*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','asdsadasdsa','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+/*C14*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'carlos')
+COMMIT
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Khaliloide')
+COMMIT
+/*C15*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Dark type','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+/*C16*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','ALoa','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Khalil')
+COMMIT
+/*C14*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Hi there!','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Kuha')
+COMMIT
+/*C16*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Hello World!','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=a47411d0-4767-453e-9bc2-dbae831d8cb6',FALSE,'Khalil')
+COMMIT
+/*C14*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Hello World!','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=3b29be12-207c-418a-a1e2-c4f11a442e91',FALSE,'Khalil')
+COMMIT
+/*C15*/INSERT INTO CARD VALUES('holi','url','Paca','ab','cd')
+COMMIT
+INSERT INTO TRADE VALUES(3,FALSE,'Near Mint',FALSE,TRUE,'24-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
+INSERT INTO REQUESTED_CARDS VALUES(3,'XY11-31')
+INSERT INTO REQUESTED_CARDS VALUES(3,'XY11-32')
+COMMIT
+/*C16*/INSERT INTO TRADE VALUES(4,FALSE,'Played',FALSE,TRUE,'24-06-2020','5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
+INSERT INTO REQUESTED_CARDS VALUES(4,'SwSh1')
+INSERT INTO REQUESTED_CARDS VALUES(4,'BW-73 Promo')
+COMMIT
+/*C15*/INSERT INTO BID VALUES(4,FALSE,'khalil.stessens@ing.austral.edu.ar','24-06-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
+COMMIT
+/*C16*/DELETE FROM BID WHERE BID=4
+INSERT INTO BID VALUES(4,FALSE,'khalil.stessens@ing.austral.edu.ar','24-06-2020','sofia.sidanez@ing.austral.edu.ar',TRUE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
+COMMIT
+/*C15*/DELETE FROM BID WHERE BID=1
+INSERT INTO BID VALUES(1,TRUE,'khalil.stessens@ing.austral.edu.ar','24-06-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
+COMMIT
+/*C14*/DISCONNECT
+/*C16*/DISCONNECT
+/*C15*/DISCONNECT
+/*C11*/DISCONNECT
