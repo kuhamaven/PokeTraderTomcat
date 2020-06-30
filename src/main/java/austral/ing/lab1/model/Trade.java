@@ -10,8 +10,8 @@ import java.util.List;
 @Entity
 public class Trade {
 
-    @Column(name="UID")
-    private String userId;
+    @Column(name="Host_Email")
+    private String hostEmail;
 
     @ManyToOne()
     @JsonManagedReference
@@ -50,12 +50,12 @@ public class Trade {
     @Column(name="Bidder_Verification")//El que oferto por el trade confirma que se realizo de forma exitosa
     private boolean bidderVerification;
 
-    public String getHostId() {
-        return userId;
+    public String getHostEmail() {
+        return hostEmail;
     }
 
-    public void setHostId(String host) {
-        this.userId= host;
+    public void setHostEmail(String hostEmail) {
+        this.hostEmail = hostEmail;
     }
 
     public Card getCard() {

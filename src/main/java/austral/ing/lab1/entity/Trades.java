@@ -31,21 +31,21 @@ public class Trades {
         );
     }
 
-    public static List<Trade> listAllHostTrades(String userId) {
+    public static List<Trade> listAllHostTrades(String hostEmail) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.userId LIKE :userId")
-                .setParameter("userId", userId).getResultList())
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail LIKE :hostEmail")
+                .setParameter("hostEmail", hostEmail).getResultList())
 
         );
 
     }
 
-    public static List<Trade> exploreTrades(String userId) {
+    public static List<Trade> exploreTrades(String hostEmail) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.userId NOT LIKE :userId")
-                .setParameter("userId", userId).getResultList())
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail")
+                .setParameter("hostEmail", hostEmail).getResultList())
 
         );
 

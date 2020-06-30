@@ -46,7 +46,7 @@ public class BidServlet extends OptionsServlet {
         bid.setTradeId(trade.getId());
         bid.setAccepted(false);
         bid.setRejected(false);
-        bid.setHostEmail(Users.findById(trade.getHostId()).get().getEmail());
+        bid.setHostEmail(trade.getHostEmail());
         bid.setBidderEmail(bidData[0]);
         Date date=Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

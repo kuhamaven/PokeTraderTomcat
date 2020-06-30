@@ -34,8 +34,7 @@ public class MyTradesServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] hostEmail = gson.fromJson(req.getReader(),String[].class);
-        User host= Users.findByEmail(hostEmail[0]).get();
-        final List<Trade> myTrades = austral.ing.lab1.entity.Trades.listAllHostTrades(host.getId());
+        final List<Trade> myTrades = austral.ing.lab1.entity.Trades.listAllHostTrades(hostEmail[0]);
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

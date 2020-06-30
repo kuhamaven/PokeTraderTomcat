@@ -35,8 +35,7 @@ public class ExploreTradesServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] userEmail = gson.fromJson(req.getReader(),String[].class);
-        Optional<User> currentUser = Users.findByEmail(userEmail[0]);
-        final List<Trade> trades = austral.ing.lab1.entity.Trades.exploreTrades(currentUser.get().getId());
+        final List<Trade> trades = austral.ing.lab1.entity.Trades.exploreTrades(userEmail[0]);
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

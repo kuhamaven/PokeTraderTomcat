@@ -1,6 +1,7 @@
 package austral.ing.lab1.entity;
 
 import austral.ing.lab1.model.Bid;
+import austral.ing.lab1.model.Card;
 import austral.ing.lab1.model.Trade;
 import austral.ing.lab1.util.LangUtils;
 
@@ -22,6 +23,17 @@ public class Bids {
         );
     }
 
+    public static Optional<Bid> findByTradeIdAndAccepted(String tradeId){
+            return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
+                    .createQuery("SELECT u FROM Bid u WHERE u.tradeId=:tradeId AND u.accepted=:true")
+                    .setParameter("tradeId", tradeId).getResultList()).stream()
+                    .findFirst()
+            );
+        }
+
+
+
+
     public static List<Bid> listAllUserBids(String userId) {
 
         return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
@@ -31,6 +43,7 @@ public class Bids {
         );
 
     }
+
     public static List<Bid> listAllTradeBids(long tradeId) {
 
         return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
