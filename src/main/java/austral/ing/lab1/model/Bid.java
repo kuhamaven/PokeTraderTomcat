@@ -21,6 +21,8 @@ public class Bid {
 
     private boolean rejected;
 
+    private boolean tradeConcluded;
+
     @Column(name="Date")
     private String date;
 
@@ -108,5 +110,12 @@ public class Bid {
 
     public void setBidderEmail(String bidderEmail) {
         this.bidderEmail = bidderEmail;
+    }
+
+    public boolean isTradeConcluded() {        return tradeConcluded;
+    }
+
+    public void setTradeConcluded(boolean tradeConcluded) {
+        this.tradeConcluded = tradeConcluded;
     }
 }

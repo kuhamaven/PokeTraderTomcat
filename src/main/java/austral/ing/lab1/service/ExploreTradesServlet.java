@@ -34,9 +34,13 @@ public class ExploreTradesServlet extends OptionsServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] userEmail = gson.fromJson(req.getReader(),String[].class);
-        final List<Trade> trades = austral.ing.lab1.entity.Trades.exploreTrades(userEmail[0]);
-
+        String[] data = gson.fromJson(req.getReader(),String[].class);
+        final List<Trade> trades;
+        if(data.length>1){
+            trades=Trades.exploreTradesWithTypeFilter(data[0],data[1]);
+        }else {
+            trades=austral.ing.lab1.entity.Trades.exploreTrades(data[0]);
+        }
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");

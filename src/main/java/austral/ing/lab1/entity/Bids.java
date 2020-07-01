@@ -37,7 +37,7 @@ public class Bids {
     public static List<Bid> listAllUserBids(String userId) {
 
         return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Bid u  WHERE u.userId LIKE :userId")
+                .createQuery("SELECT u FROM Bid u  WHERE u.userId LIKE :userId AND u.tradeConcluded=false")
                 .setParameter("userId", userId).getResultList())
 
         );

@@ -38,6 +38,7 @@ public class BidderVerificationServlet extends OptionsServlet {
         if (currentTrade.get().isHostVerification()) {
             Optional<Bid> currentBid = Bids.findByTradeIdAndAccepted(Long.parseLong(bidData[0]));
             Card bidderCard = currentBid.get().getCard();
+            currentBid.get().setTradeConcluded(true);
             Card hostCard = currentTrade.get().getCard();
             User host = Users.findByEmail(currentTrade.get().getHostEmail()).get();
             User bidder = Users.findByEmail(currentBid.get().getBidderEmail()).get();
@@ -45,6 +46,7 @@ public class BidderVerificationServlet extends OptionsServlet {
             host.removeCard(hostCard);
             bidder.addCard(hostCard);
             bidder.removeCard(bidderCard);
+            Bids.persist(currentBid.get());
             Users.persist(host);
             Users.persist(bidder);
 

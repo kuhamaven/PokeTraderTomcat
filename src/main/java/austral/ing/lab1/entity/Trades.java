@@ -34,7 +34,7 @@ public class Trades {
     public static List<Trade> listAllHostTrades(String hostEmail) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail LIKE :hostEmail AND u.hostVerification = false AND u.bidderVerification = false")
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail LIKE :hostEmail AND u NOT IN (SELECT u FROM Trade u WHERE u.hostVerification = true AND u.bidderVerification = true)")
                 .setParameter("hostEmail", hostEmail).getResultList())
 
         );
@@ -46,6 +46,16 @@ public class Trades {
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
                 .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true")
                 .setParameter("hostEmail", hostEmail).getResultList())
+
+        );
+
+    }
+
+    public static List<Trade> exploreTradesWithTypeFilter(String hostEmail,String type) {
+
+        return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true AND u.card.type LIKE : type")
+                .setParameter("hostEmail", hostEmail).setParameter("type",type).getResultList())
 
         );
 
