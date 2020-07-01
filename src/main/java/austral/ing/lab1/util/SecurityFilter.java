@@ -1,6 +1,7 @@
 package austral.ing.lab1.util;
 
 import com.google.gson.Gson;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import java.net.URISyntaxException;
 import java.net.http.*;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.stream.Collectors;
 
 import static austral.ing.lab1.util.LangUtils.EMPTY_ARRAY;
 import static austral.ing.lab1.util.LangUtils.notNull;
@@ -53,6 +55,7 @@ public class SecurityFilter extends HttpFilter {
                     //sacar email del user del response.body
                     System.out.println("entre al if");
                     //req.setAttribute("LoggedUser",email);
+                    System.out.println(IOUtils.toString(req.getReader()));
                     chain.doFilter(req,res);
 
 
