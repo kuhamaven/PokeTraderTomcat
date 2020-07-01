@@ -34,7 +34,7 @@ public class Trades {
     public static List<Trade> listAllHostTrades(String hostEmail) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail LIKE :hostEmail")
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail LIKE :hostEmail AND u.hostVerification = false AND u.bidderVerification = false")
                 .setParameter("hostEmail", hostEmail).getResultList())
 
         );
