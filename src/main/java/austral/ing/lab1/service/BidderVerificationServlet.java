@@ -19,25 +19,24 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/bidderVerification")
+@WebServlet("/bidderverification")
 public class BidderVerificationServlet extends OptionsServlet {
 
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] BidData = gson.fromJson(req.getReader(), String[].class);
+        String[] bidData = gson.fromJson(req.getReader(), String[].class);
         Optional<Trade> currentTrade = Trades.findById(Long.parseLong(bidData[0]));
-        currentTrade.get().setHostVerification(true);
+        currentTrade.get().setBidderVerification(true);
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-        if (currentTrade.get().isBidderVerification()) {
-            currentTrade.get().setOpen(false);
-            Optional<Bid> currentBid = Bids.findByTradeIdAndAccepted(tradeData[0]);
+        if (currentTrade.get().isHostVerification()) {
+            Optional<Bid> currentBid = Bids.findByTradeIdAndAccepted(Long.parseLong(bidData[0]));
             Card bidderCard = currentBid.get().getCard();
             Card hostCard = currentTrade.get().getCard();
             User host = Users.findByEmail(currentTrade.get().getHostEmail()).get();
@@ -48,7 +47,6 @@ public class BidderVerificationServlet extends OptionsServlet {
             bidder.removeCard(bidderCard);
             Users.persist(host);
             Users.persist(bidder);
-            Trades.persist(currentTrade.get());
 
             out.print(gson.toJson("Verification Accepted-Trade Completed"));
 
@@ -58,6 +56,7 @@ public class BidderVerificationServlet extends OptionsServlet {
             out.print(gson.toJson("Verification Accepted"));
 
         }
+        Trades.persist(currentTrade.get());
         resp.setStatus(200);
         out.close();
 

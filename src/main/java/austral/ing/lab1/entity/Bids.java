@@ -23,9 +23,9 @@ public class Bids {
         );
     }
 
-    public static Optional<Bid> findByTradeIdAndAccepted(String tradeId){
+    public static Optional<Bid> findByTradeIdAndAccepted(Long tradeId){
             return tx(() -> LangUtils.<Bid>checkedList(currentEntityManager()
-                    .createQuery("SELECT u FROM Bid u WHERE u.tradeId=:tradeId AND u.accepted=:true")
+                    .createQuery("SELECT u FROM Bid u WHERE u.tradeId=:tradeId AND u.accepted = true")
                     .setParameter("tradeId", tradeId).getResultList()).stream()
                     .findFirst()
             );

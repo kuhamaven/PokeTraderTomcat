@@ -1,9 +1,11 @@
 package austral.ing.lab1.service;
 
 import austral.ing.lab1.entity.Bids;
+import austral.ing.lab1.entity.Trades;
 import austral.ing.lab1.entity.Users;
 import austral.ing.lab1.model.Bid;
 import austral.ing.lab1.model.Card;
+import austral.ing.lab1.model.Trade;
 import austral.ing.lab1.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
@@ -43,6 +45,9 @@ public class OnAcceptServlet extends OptionsServlet {
                     Bids.persist(otherBids.get(i));
                 }
             }
+            Trade currentTrade = Trades.findById(currentBid.get().getTradeId()).get();
+            currentTrade.setOpen(false);
+            Trades.persist(currentTrade);
             out.print(gson.toJson("Bid Accepted"));
             resp.setStatus(200);
             out.close();

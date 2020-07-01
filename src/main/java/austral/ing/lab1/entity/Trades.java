@@ -44,7 +44,7 @@ public class Trades {
     public static List<Trade> exploreTrades(String hostEmail) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail")
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true")
                 .setParameter("hostEmail", hostEmail).getResultList())
 
         );

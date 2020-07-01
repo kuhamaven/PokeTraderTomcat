@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/hostVerification")
+@WebServlet("/hostverification")
 public class HostVerificationServlet extends OptionsServlet {
 
 
@@ -36,8 +36,7 @@ public class HostVerificationServlet extends OptionsServlet {
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
         if (currentTrade.get().isBidderVerification()) {
-            currentTrade.get().setOpen(false);
-            Optional<Bid> currentBid = Bids.findByTradeIdAndAccepted(tradeData[0]);
+            Optional<Bid> currentBid = Bids.findByTradeIdAndAccepted(Long.parseLong(tradeData[0]));
             Card bidderCard = currentBid.get().getCard();
             Card hostCard = currentTrade.get().getCard();
             User host = Users.findByEmail(currentTrade.get().getHostEmail()).get();
@@ -48,7 +47,6 @@ public class HostVerificationServlet extends OptionsServlet {
             bidder.removeCard(bidderCard);
             Users.persist(host);
             Users.persist(bidder);
-            Trades.persist(currentTrade.get());
 
             out.print(gson.toJson("Verification Accepted-Trade Completed"));
 
@@ -58,6 +56,7 @@ public class HostVerificationServlet extends OptionsServlet {
             out.print(gson.toJson("Verification Accepted"));
 
         }
+        Trades.persist(currentTrade.get());
         resp.setStatus(200);
         out.close();
 
