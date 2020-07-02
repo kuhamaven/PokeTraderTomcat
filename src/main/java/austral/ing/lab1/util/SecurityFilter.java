@@ -1,13 +1,17 @@
 package austral.ing.lab1.util;
 
+import austral.ing.lab1.model.User;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.Gson;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.tomcat.util.json.JSONParser;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -49,16 +53,12 @@ public class SecurityFilter extends HttpFilter {
                         .build();
                 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
                 System.out.println(response.statusCode());
-                System.out.println(response.body());
 
                 if(response.statusCode()==200){
-                    //sacar email del user del response.body
-                    System.out.println("entre al if");
-                    //req.setAttribute("LoggedUser",email);
-                    System.out.println(IOUtils.toString(req.getReader()));
+                    Gson gson = new Gson();
+                    String[] data = response.body().split("\"" );
+                    req.setAttribute("LoggedUser",data[35]);
                     chain.doFilter(req,res);
-
-
                 }else{
                     res.sendError(HttpServletResponse.SC_FORBIDDEN);
                     return;

@@ -1,69 +1,24 @@
-/*C25*/SET SCHEMA PUBLIC
-INSERT INTO BID VALUES(2,FALSE,'khalil.stessens@ing.austral.edu.ar','01-07-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
-COMMIT
-INSERT INTO BID VALUES(3,FALSE,'khalil.stessens@ing.austral.edu.ar','01-07-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,3,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-3')
-COMMIT
-/*C24*/SET SCHEMA PUBLIC
-INSERT INTO BID VALUES(4,FALSE,'khalil.stessens@ing.austral.edu.ar','01-07-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
-COMMIT
-/*C25*/DELETE FROM BID WHERE BID=2
-INSERT INTO BID VALUES(2,TRUE,'khalil.stessens@ing.austral.edu.ar','01-07-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
-COMMIT
-DELETE FROM BID WHERE BID=4
-INSERT INTO BID VALUES(4,FALSE,'khalil.stessens@ing.austral.edu.ar','01-07-2020','sofia.sidanez@ing.austral.edu.ar',TRUE,FALSE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
-COMMIT
-DELETE FROM TRADE WHERE TID=2
-INSERT INTO TRADE VALUES(2,FALSE,'Near Mint','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,'01-07-2020','XY155')
-COMMIT
-/*C24*/DELETE FROM TRADE WHERE TID=2
-INSERT INTO TRADE VALUES(2,TRUE,'Near Mint','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,'01-07-2020','XY155')
-COMMIT
-DELETE FROM TRADE WHERE TID=2
-INSERT INTO TRADE VALUES(2,TRUE,'Near Mint','sofia.sidanez@ing.austral.edu.ar',TRUE,FALSE,'01-07-2020','XY155')
-COMMIT
-/*C25*/DELETE FROM BID WHERE BID=2
-INSERT INTO BID VALUES(2,TRUE,'khalil.stessens@ing.austral.edu.ar','01-07-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,TRUE,2,'5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-38')
-COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','holi todo bien','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=aaad4123-910b-487e-b6b2-60f0d0803310',TRUE,'Sofu')
-DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Hello World!','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=3b29be12-207c-418a-a1e2-c4f11a442e91',TRUE,'Khalil')
-DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='XY155'
-DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='XY11-31'
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-31')
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','XY11-38')
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-73 Promo'
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='XY11-38'
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='BW-93 Promo'
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='XY11-30'
-DELETE FROM USER_COLLECTION WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a' AND ID='XY11-3'
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-73 Promo')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','BW-93 Promo')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-30')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY11-3')
-INSERT INTO USER_COLLECTION VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','XY155')
-COMMIT
-/*C24*/DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','holi todo bien','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=aaad4123-910b-487e-b6b2-60f0d0803310',FALSE,'Sofu')
-COMMIT
-DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a'
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42\u000d\u000a','Hello World!','khalil.stessens@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_khalil.stessens%40ing.austral.edu.ar?alt=media&token=3b29be12-207c-418a-a1e2-c4f11a442e91',FALSE,'Khalil')
-COMMIT
+/*C12*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C25*/DISCONNECT
-/*C26*/SET SCHEMA PUBLIC
+/*C13*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C27*/SET SCHEMA PUBLIC
+/*C14*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C28*/SET SCHEMA PUBLIC
+/*C15*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C29*/SET SCHEMA PUBLIC
+/*C16*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C30*/SET SCHEMA PUBLIC
+/*C17*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C31*/SET SCHEMA PUBLIC
+/*C18*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C32*/SET SCHEMA PUBLIC
+/*C19*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C33*/SET SCHEMA PUBLIC
+/*C20*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
 DISCONNECT

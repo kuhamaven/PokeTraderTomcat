@@ -35,6 +35,7 @@ public class ProfileServlet extends OptionsServlet {
             String json = objectMapper.writeValueAsString(currentUser.get()); //gson.toJson(cards);
             currentUser.get().setRecentlyModified(false);
             Users.persist(currentUser.get());
+            System.out.println("LOGGED USER ATTRIBUTE: "+req.getAttribute("LoggedUser"));
             out.print(json);
             resp.setStatus(201);
         }
