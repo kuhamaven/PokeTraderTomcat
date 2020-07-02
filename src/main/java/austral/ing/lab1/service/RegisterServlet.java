@@ -25,7 +25,7 @@ public class RegisterServlet extends OptionsServlet {
         Gson gson = new Gson();
         String[] userData = gson.fromJson(req.getReader(),String[].class);
         User user=new User();
-        user.setEmail(userData[0]);
+        user.setEmail(req.getAttribute("LoggedUser").toString());
         user.setId(userData[1]);
         user.setPhotoUrl(userData[2]);
         Users.persist(user);

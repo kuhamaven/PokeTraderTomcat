@@ -27,7 +27,7 @@ public class OnAcceptServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] userData = gson.fromJson(req.getReader(),String[].class);
-        Optional<User> currentUser = Users.findByEmail(userData[0]);
+        Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
         Optional<Bid> currentBid = Bids.findById(Long.parseLong(userData[1]));
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();

@@ -40,7 +40,7 @@ public class HostVerificationServlet extends OptionsServlet {
             Card bidderCard = currentBid.get().getCard();
             Card hostCard = currentTrade.get().getCard();
             currentBid.get().setTradeConcluded(true);
-            User host = Users.findByEmail(currentTrade.get().getHostEmail()).get();
+            User host = Users.findByEmail(req.getAttribute("LoggedUser").toString()).get();
             User bidder = Users.findByEmail(currentBid.get().getBidderEmail()).get();
             host.addCard(bidderCard);
             host.removeCard(hostCard);

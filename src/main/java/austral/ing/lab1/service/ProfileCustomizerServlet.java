@@ -23,8 +23,7 @@ public class ProfileCustomizerServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] userData = gson.fromJson(req.getReader(),String[].class);
-        System.out.println(userData[0]);
-        Optional<User> currentUser = Users.findByEmail(userData[0]);
+        Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
         if(!(userData[1].length()<1)){currentUser.get().setUserName(userData[1]);}
         if(!(userData[2].length()<1)){currentUser.get().setBio(userData[2]);}
         if(!(userData[3].length()<1)){currentUser.get().setPhotoUrl(userData[3]);}

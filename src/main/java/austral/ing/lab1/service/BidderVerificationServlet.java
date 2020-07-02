@@ -41,7 +41,7 @@ public class BidderVerificationServlet extends OptionsServlet {
             currentBid.get().setTradeConcluded(true);
             Card hostCard = currentTrade.get().getCard();
             User host = Users.findByEmail(currentTrade.get().getHostEmail()).get();
-            User bidder = Users.findByEmail(currentBid.get().getBidderEmail()).get();
+            User bidder = Users.findByEmail(req.getAttribute("LoggedUser").toString()).get();
             host.addCard(bidderCard);
             host.removeCard(hostCard);
             bidder.addCard(hostCard);

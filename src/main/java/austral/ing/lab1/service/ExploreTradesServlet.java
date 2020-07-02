@@ -35,11 +35,15 @@ public class ExploreTradesServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] data = gson.fromJson(req.getReader(),String[].class);
-        final List<Trade> trades;
+        List<Trade> trades = new ArrayList<>();
         if(data.length>1){
-            trades=Trades.exploreTradesWithTypeFilter(data[0],data[1]);
-        }else {
-            trades=austral.ing.lab1.entity.Trades.exploreTrades(data[0]);
+            if(data[2].equals("Type")){
+                trades=Trades.exploreTradesWithTypeFilter(req.getAttribute("LoggedUser").toString(),data[1]);
+            }else if(data[2].equals("Variant")){
+                trades=Trades.exploreTradesWithVariantFilter(req.getAttribute("LoggedUser").toString(),data[1]);
+            }
+        }else{
+            trades=austral.ing.lab1.entity.Trades.exploreTrades(req.getAttribute("LoggedUser").toString());
         }
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

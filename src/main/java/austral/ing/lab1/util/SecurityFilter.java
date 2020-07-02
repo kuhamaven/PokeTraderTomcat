@@ -33,7 +33,6 @@ public class SecurityFilter extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        if (isSecure(req)) {
             try {
 
                 final String tokenId = req.getParameterValues("tokenId")[0];
@@ -41,7 +40,6 @@ public class SecurityFilter extends HttpFilter {
                 String token = "{\"idToken\": \"" + tokenId + "\" }";
 
                 HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(token);
-                System.out.println(token);
 
                 HttpRequest request = HttpRequest.newBuilder()
                         .uri(new URI("https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyA9f6ahNiOBaLQHmydvcDgq0RyqKIZOyis"))
@@ -52,46 +50,19 @@ public class SecurityFilter extends HttpFilter {
                         .connectTimeout(Duration.ofSeconds(20))
                         .build();
                 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-                System.out.println(response.statusCode());
 
-                if(response.statusCode()==200){
-                    Gson gson = new Gson();
-                    String[] data = response.body().split("\"" );
-                    req.setAttribute("LoggedUser",data[35]);
-                    chain.doFilter(req,res);
-                }else{
+                if(response.statusCode()==200) {
+                    String[] data = response.body().split("\"");
+                    req.setAttribute("LoggedUser", data[35]);
+                    chain.doFilter(req, res);
+                }
+                else
+                {
                     res.sendError(HttpServletResponse.SC_FORBIDDEN);
                     return;
-
-
-
                 }
             } catch (URISyntaxException | InterruptedException e) {
                 e.printStackTrace();
             }
-
-
-
-       /*     final String content = prepareBody(userToken);
-            //Buscar cualquier libreria de HTTPClient Apache tiene
-            final HttpResponse response = HttpClient.post(GOOGLE_URL + "?appId=" + appId, content)
-
-            if (response.statusCode == 200) {
-                req.setAttribute("LoggedUser",email); //Sacar del JSON
-                //En un servlet hacemos que saque el LoggedUser del req y listo*/
-
         }
-    }
-
-
-
-
-
-
-    private boolean isSecure(HttpServletRequest req) {
-            return true;
-        }
-
-
-
 }

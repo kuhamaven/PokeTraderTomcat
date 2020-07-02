@@ -24,7 +24,7 @@ public class CardRemoverServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] ids = gson.fromJson(req.getReader(),String[].class);
-        Optional<User> currentUser = Users.findByEmail(ids[0]);
+        Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
         for (int i = 1; i <ids.length ; i++) {
             currentUser.get().removeCard(Cards.findById(ids[i]).get());
         }

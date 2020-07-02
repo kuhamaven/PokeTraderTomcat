@@ -30,7 +30,7 @@ public class MyBidsServlet extends OptionsServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         String[] hostEmail = gson.fromJson(req.getReader(),String[].class);
-        User host= Users.findByEmail(hostEmail[0]).get();
+        User host= Users.findByEmail(req.getAttribute("LoggedUser").toString()).get();
         final List<Bid> myBids = austral.ing.lab1.entity.Bids.listAllUserBids(host.getId());
 
         resp.setContentType("application/json");
