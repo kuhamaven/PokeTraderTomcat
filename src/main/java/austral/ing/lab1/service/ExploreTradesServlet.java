@@ -37,14 +37,17 @@ public class ExploreTradesServlet extends OptionsServlet {
         String[] data = gson.fromJson(req.getReader(),String[].class);
         List<Trade> trades = new ArrayList<>();
         String mail = data[0];
-        if(data.length>1){
-            if(data[2].equals("Type")){
-                trades=Trades.exploreTradesWithTypeFilter(mail,data[1]);
-            }else if(data[2].equals("Variant")){
-                trades=Trades.exploreTradesWithVariantFilter(mail,data[1]);
+        if(!data[1].equals("All Types") && !data[2].equals("All Variants")) {
+            trades = Trades.exploreTradesWithVariantAndTypeFilter(mail, data[1], data[2]);
+        }
+        else{
+            if(!data[2].equals("All Variants")){
+                trades=Trades.exploreTradesWithVariantFilter(mail,data[2]);
             }
-        }else{
-            trades=austral.ing.lab1.entity.Trades.exploreTrades(mail);
+            else if(!data[1].equals("All Types")){
+                trades=Trades.exploreTradesWithTypeFilter(mail,data[1]);
+            }
+      else trades=Trades.exploreTrades(mail);
         }
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");

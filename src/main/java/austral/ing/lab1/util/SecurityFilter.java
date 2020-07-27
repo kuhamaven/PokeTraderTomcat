@@ -1,6 +1,7 @@
 package austral.ing.lab1.util;
 
 import austral.ing.lab1.model.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.Gson;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
+import java.io.PrintWriter;
 import java.net.Authenticator;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -58,8 +60,18 @@ public class SecurityFilter extends HttpFilter {
                 }
                 else
                 {
-                    res.sendError(HttpServletResponse.SC_FORBIDDEN);
-                    return;
+                   // res.sendError(HttpServletResponse.SC_FORBIDDEN);
+                   // return;
+                    res.setContentType("application/json");
+                    res.setCharacterEncoding("UTF-8");
+                    res.setHeader("Access-Control-Allow-Origin", "*");
+                    res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+                    res.setStatus(308);
+                    res.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+                    res.setHeader("Location", "http://localhost:4200/login");
+                    PrintWriter out = res.getWriter();
+
+                    out.flush();
                 }
             } catch (URISyntaxException | InterruptedException e) {
                 e.printStackTrace();

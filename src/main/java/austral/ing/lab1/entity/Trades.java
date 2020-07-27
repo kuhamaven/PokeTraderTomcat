@@ -70,6 +70,16 @@ public class Trades {
         );
 
     }
+    public static List<Trade> exploreTradesWithVariantAndTypeFilter(String hostEmail,String type,String variant) {
+
+        return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true AND u.card.variant LIKE : variant AND u.card.type LIKE : type")
+                .setParameter("hostEmail", hostEmail).setParameter("variant",variant).setParameter("type",type).getResultList())
+
+        );
+
+    }
+
 
     public static Trade persist(Trade card) {
         final EntityTransaction tx = currentEntityManager().getTransaction();
