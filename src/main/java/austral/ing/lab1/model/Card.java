@@ -30,6 +30,10 @@ public class Card {
     @Column(name = "supertype")
     private String supertype;
 
+
+    @Column(name = "Rarity")
+    private String rarity;
+
     @Column(name = "national_Pokedex_Number")
     private int nationalPokedexNumber;
 
@@ -148,5 +152,13 @@ public class Card {
 
     public void setUsers2(List<User> users2) {
         this.users2 = users2;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
     }
 }

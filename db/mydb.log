@@ -1,81 +1,201 @@
-/*C4*/SET SCHEMA PUBLIC
+/*C18*/SET SCHEMA PUBLIC
+alter table Card add column Rarity varchar(255)
+INSERT INTO CARD VALUES('base4-112','https://images.pokemontcg.io/base4/112.png','Maintenance',0,'','Trainer',NULL,'Uncommon')
+COMMIT
+/*C20*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES('bw1-105','https://images.pokemontcg.io/bw1/105.png','Grass Energy',0,'Basic','Energy',NULL,'Common')
+COMMIT
+/*C19*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES('base4-121','https://images.pokemontcg.io/base4/121.png','Pok\u00c3\u00a9 Ball',0,'','Trainer',NULL,'Common')
+COMMIT
+/*C18*/DISCONNECT
+/*C19*/DISCONNECT
+/*C20*/DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+set schema PUBLIC
+drop table REQUESTED_CARDS
+/*C23*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C5*/SET SCHEMA PUBLIC
-INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42','Holi','khalil.stessens@ing.austral.edu.ar',NULL,NULL,NULL,'Khali')
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',NULL,NULL,'Sofi')
-COMMIT
-/*C6*/SET SCHEMA PUBLIC
-INSERT INTO CARD VALUES('xyp-XY05','https://images.pokemontcg.io/xyp/XY05.png','Xerneas',716,'Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054661697279')
-COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',NULL,TRUE,'Sofi')
-INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xyp-XY05')
-COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',FALSE,TRUE,'Sofi')
-COMMIT
-/*C7*/SET SCHEMA PUBLIC
+/*C22*/drop table TRADE
+/*C24*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C6*/DISCONNECT
-/*C5*/DISCONNECT
-/*C8*/SET SCHEMA PUBLIC
-INSERT INTO CARD VALUES('ex10-101','https://images.pokemontcg.io/ex10/101.png','Blissey ex',242,'EX','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
-COMMIT
-DELETE FROM USER_WISHLIST WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xyp-XY05'
-INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xyp-XY05')
-INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex10-101')
-COMMIT
-INSERT INTO CARD VALUES('sm8-153','https://images.pokemontcg.io/sm8/153.png','Blissey',242,'Stage 1','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
-COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',TRUE,TRUE,'Sofi')
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','sm8-153')
-COMMIT
+/*C25*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C9*/SET SCHEMA PUBLIC
+/*C22*/drop table BID
+/*C26*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C11*/SET SCHEMA PUBLIC
+/*C27*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/drop table USER_COLLECTION
+/*C28*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/drop table USER_WISHLIST
+/*C29*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/drop table CARD
+/*C30*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+create table Bid (BID bigint not null, accepted boolean not null, bidderEmail varchar(255), Date varchar(255), hostEmail varchar(255), rejected boolean not null, tradeConcluded boolean not null, tradeId bigint, userId varchar(255), ID varchar(255), primary key (BID))
+create table Card (id varchar(255) not null, Image_Url varchar(255), Name varchar(255), national_Pokedex_Number integer, Rarity varchar(255), subtype varchar(255), supertype varchar(255), Types varbinary(255), primary key (id))
+create table Requested_Cards (TID bigint not null, ID varchar(255) not null)
+create table Trade (TID bigint not null, Bidder_Verification boolean, Condition varchar(255), Host_Email varchar(255), Host_Verification boolean, Is_Open boolean, Opening_Date varchar(255), ID varchar(255), primary key (TID))
+create table User_Collection (UID varchar(255) not null, ID varchar(255) not null)
+create table User_Wishlist (UID varchar(255) not null, ID varchar(255) not null)
+alter table Bid add constraint FK2s72jwp0qedqimorwx81qqo5e foreign key (ID) references Card
+alter table Requested_Cards add constraint FKr7q3jxjh22baotipqcv302kkc foreign key (ID) references Card
+alter table Requested_Cards add constraint FKmlael2v3ncryot53fhipe0gii foreign key (TID) references Trade
+alter table Trade add constraint FKie0k2p4jcmdk8tlavjpt3t05m foreign key (ID) references Card
+alter table User_Collection add constraint FKmugn4vhbrvpa0h4ltc23jqqf9 foreign key (ID) references Card
+alter table User_Collection add constraint FKcfw6a5l1jna2uciq9qjb652hm foreign key (UID) references User
+alter table User_Wishlist add constraint FKl00acf9ic394hrlmamvw69qgq foreign key (ID) references Card
+alter table User_Wishlist add constraint FKbsqm4ch79vin3ahmdms7f1ys8 foreign key (UID) references User
+INSERT INTO CARD VALUES('ex14-100','https://images.pokemontcg.io/ex14/100.png','Celebi Star',251,'Rare Holo','Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054772617373')
+COMMIT
+INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex14-100')
+COMMIT
+INSERT INTO CARD VALUES('gym1-104','https://images.pokemontcg.io/gym1/104.png','The Rocket''s Training Gym',0,'Rare','','Trainer',NULL)
+COMMIT
+DELETE FROM USER_WISHLIST WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex14-100'
+INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex14-100')
+INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','gym1-104')
+COMMIT
+INSERT INTO CARD VALUES('xy0-34','https://images.pokemontcg.io/xy0/34.png','Crushing Hammer',0,'','Item','Trainer',NULL)
+COMMIT
+DELETE FROM USER_WISHLIST WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex14-100'
+DELETE FROM USER_WISHLIST WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='gym1-104'
+INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex14-100')
+INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','gym1-104')
+INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy0-34')
+COMMIT
+INSERT INTO CARD VALUES('xy7-4','https://images.pokemontcg.io/xy7/4.png','Bellossom',182,'Uncommon','Stage 2','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054772617373')
+COMMIT
 DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',FALSE,TRUE,'Sofi')
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=c4b1e3e6-80f5-4ebf-973d-b7d2d8aae29d',TRUE,TRUE,'Sofi')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
 COMMIT
-/*C10*/SET SCHEMA PUBLIC
-INSERT INTO CARD VALUES('xy2-63','https://images.pokemontcg.io/xy2/63.png','Flab\u00c3\u00a9b\u00c3\u00a9',669,'Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054661697279')
+INSERT INTO CARD VALUES('base4-112','https://images.pokemontcg.io/base4/112.png','Maintenance',0,'Uncommon','','Trainer',NULL)
 COMMIT
-/*C11*/DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',TRUE,TRUE,'Sofi')
-DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='sm8-153'
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','sm8-153')
-INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy2-63')
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
 COMMIT
-DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
-INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','',FALSE,TRUE,'Sofi')
+INSERT INTO CARD VALUES('bw1-105','https://images.pokemontcg.io/bw1/105.png','Grass Energy',0,'Common','Basic','Energy',NULL)
 COMMIT
-/*C10*/INSERT INTO CARD VALUES('ex16-49','https://images.pokemontcg.io/ex16/49.png','Chinchou',170,'Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400094c696768746e696e67')
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='base4-112'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','bw1-105')
 COMMIT
-/*C11*/DELETE FROM USER_WISHLIST WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xyp-XY05'
-DELETE FROM USER_WISHLIST WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex10-101'
-INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xyp-XY05')
-INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex10-101')
-INSERT INTO USER_WISHLIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex16-49')
+INSERT INTO CARD VALUES('ex16-32','https://images.pokemontcg.io/ex16/32.png','Lairon',305,'Uncommon','Stage 1','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054d6574616c')
 COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='base4-112'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='bw1-105'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','bw1-105')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex16-32')
+COMMIT
+INSERT INTO CARD VALUES('det1-4','https://images.pokemontcg.io/det1/4.png','Charmander',4,'Common','Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b4702000078700000000174000446697265')
+COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='base4-112'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='bw1-105'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex16-32'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','bw1-105')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex16-32')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','det1-4')
+COMMIT
+INSERT INTO CARD VALUES('xy0-26','https://images.pokemontcg.io/xy0/26.png','Snorlax',143,'','Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
+COMMIT
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='base4-112'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='bw1-105'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex16-32'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='det1-4'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','bw1-105')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex16-32')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','det1-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy0-26')
+COMMIT
+/*C32*/SET SCHEMA PUBLIC
 DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
 INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=c4b1e3e6-80f5-4ebf-973d-b7d2d8aae29d',FALSE,TRUE,'Sofi')
 COMMIT
-/*C13*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C12*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C10*/DISCONNECT
-/*C11*/DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C15*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C16*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C17*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C18*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C19*/SET SCHEMA PUBLIC
-DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES('sm12-143','https://images.pokemontcg.io/sm12/143.png','Togepi & Cleffa & Igglybuff-GX',173,'Rare Holo GX','TAG TEAM','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054661697279')
+COMMIT
+/*C31*/INSERT INTO CARD VALUES('xy1-91','https://images.pokemontcg.io/xy1/91.png','Mr. Mime',122,'Uncommon','Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054661697279')
+COMMIT
+/*C33*/INSERT INTO TRADE VALUES(1,FALSE,'Played','sofia.sidanez@ing.austral.edu.ar',FALSE,TRUE,'03-08-2020','xy7-4')
+INSERT INTO REQUESTED_CARDS VALUES(1,'sm12-143')
+INSERT INTO REQUESTED_CARDS VALUES(1,'xy1-91')
+COMMIT
+/*C32*/INSERT INTO CARD VALUES('ex8-100','https://images.pokemontcg.io/ex8/100.png','Hariyama ex',297,'Rare Holo EX','EX','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400084669676874696e67')
+COMMIT
+/*C31*/INSERT INTO TRADE VALUES(2,FALSE,'Played','sofia.sidanez@ing.austral.edu.ar',FALSE,TRUE,'03-08-2020','base4-112')
+INSERT INTO REQUESTED_CARDS VALUES(2,'ex8-100')
+COMMIT
+/*C33*/INSERT INTO CARD VALUES('xy7-27','https://images.pokemontcg.io/xy7/27.png','Ampharos-EX',181,'Rare Holo EX','EX','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400094c696768746e696e67')
+COMMIT
+/*C32*/INSERT INTO TRADE VALUES(3,FALSE,'Played','sofia.sidanez@ing.austral.edu.ar',FALSE,TRUE,'03-08-2020','det1-4')
+INSERT INTO REQUESTED_CARDS VALUES(3,'xy7-27')
+COMMIT
+/*C31*/DELETE FROM USER WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42'
+INSERT INTO USER VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42','Holi','khalil.stessens@ing.austral.edu.ar',NULL,FALSE,NULL,'Khali')
+COMMIT
+/*C33*/INSERT INTO CARD VALUES('hgss2-13','https://images.pokemontcg.io/hgss2/13.png','Blastoise',9,'Rare','Stage 2','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400055761746572')
+COMMIT
+/*C31*/DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=c4b1e3e6-80f5-4ebf-973d-b7d2d8aae29d',TRUE,TRUE,'Sofi')
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='base4-112'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='bw1-105'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex16-32'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='det1-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy0-26'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','bw1-105')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex16-32')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','det1-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy0-26')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','hgss2-13')
+COMMIT
+/*C33*/INSERT INTO CARD VALUES('base6-4','https://images.pokemontcg.io/base6/4.png','Dark Blastoise',9,'Rare','Stage 2','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400055761746572')
+COMMIT
+/*C31*/DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy7-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='base4-112'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='bw1-105'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='ex16-32'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='det1-4'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='xy0-26'
+DELETE FROM USER_COLLECTION WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND ID='hgss2-13'
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy7-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base4-112')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','bw1-105')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','ex16-32')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','det1-4')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','xy0-26')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','hgss2-13')
+INSERT INTO USER_COLLECTION VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','base6-4')
+COMMIT
+/*C32*/DELETE FROM USER WHERE UID='j7NTvpniStbxeUhHpEzUWW2I0iy2'
+INSERT INTO USER VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','Holi','sofia.sidanez@ing.austral.edu.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_sofia.sidanez%40ing.austral.edu.ar?alt=media&token=c4b1e3e6-80f5-4ebf-973d-b7d2d8aae29d',FALSE,TRUE,'Sofi')
+COMMIT
+INSERT INTO CARD VALUES('dp6-90','https://images.pokemontcg.io/dp6/90.png','Cubone',104,'Common','Basic','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400084669676874696e67')
+COMMIT
+/*C31*/INSERT INTO TRADE VALUES(4,FALSE,'Near Mint','sofia.sidanez@ing.austral.edu.ar',FALSE,TRUE,'03-08-2020','hgss2-13')
+INSERT INTO REQUESTED_CARDS VALUES(4,'dp6-90')
+COMMIT
+/*C33*/INSERT INTO CARD VALUES('xy7-21','https://images.pokemontcg.io/xy7/21.png','Gyarados',130,'Rare Holo','Stage 1','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400055761746572')
+COMMIT
+/*C32*/INSERT INTO TRADE VALUES(5,FALSE,'Played','sofia.sidanez@ing.austral.edu.ar',FALSE,TRUE,'03-08-2020','base6-4')
+INSERT INTO REQUESTED_CARDS VALUES(5,'xy7-21')
+COMMIT

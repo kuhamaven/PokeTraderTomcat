@@ -51,34 +51,30 @@ public class Trades {
 
     }
 
-   /* public static List<Trade> exploreTradesWithTypeFilter(String hostEmail,String type) {
+
+    public static List<Trade> exploreTradesWithId(String hostEmail,String name,String supertype,String subtype,String rarity,String cardId) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true AND u.card.type LIKE : type")
-                .setParameter("hostEmail", hostEmail).setParameter("type",type).getResultList())
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND  u.isOpen = true AND u.card.name LIKE : name AND u.card.supertype LIKE : supertype AND " +
+                        "u.card.subtype LIKE : subtype AND u.card.rarity LIKE : rarity AND u.card.id LIKE : cardId")
+                .setParameter("hostEmail", hostEmail).setParameter("name", name).setParameter("supertype", supertype)
+                .setParameter("subtype", subtype).setParameter("rarity", rarity).setParameter("cardId", cardId).getResultList())
 
         );
-
     }
 
-    public static List<Trade> exploreTradesWithVariantFilter(String hostEmail,String variant) {
+    public static List<Trade> exploreTrades(String hostEmail,String name,String supertype,String subtype,String rarity) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true AND u.card.variant LIKE : variant")
-                .setParameter("hostEmail", hostEmail).setParameter("variant",variant).getResultList())
+                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND  u.isOpen = true AND u.card.name LIKE : name AND u.card.supertype LIKE : supertype AND " +
+                        "u.card.subtype LIKE : subtype AND u.card.rarity LIKE : rarity")
+                .setParameter("hostEmail", hostEmail).setParameter("name", name).setParameter("supertype", supertype)
+                .setParameter("subtype", subtype).setParameter("rarity", rarity).getResultList())
 
         );
-
     }
-    public static List<Trade> exploreTradesWithVariantAndTypeFilter(String hostEmail,String type,String variant) {
 
-        return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
-                .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true AND u.card.variant LIKE : variant AND u.card.type LIKE : type")
-                .setParameter("hostEmail", hostEmail).setParameter("variant",variant).setParameter("type",type).getResultList())
 
-        );
-
-    }*/
 
 
     public static Trade persist(Trade card) {
