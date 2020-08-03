@@ -55,7 +55,15 @@ public class SecurityFilter extends HttpFilter {
 
                 if(response.statusCode()==200) {
                     String[] data = response.body().split("\"");
-                    req.setAttribute("LoggedUser", data[35]);
+                    String userEmail="";
+                    for (int i = 0; i <data.length ; i++) {
+                        if(data[i].equals("email")){
+                            userEmail=data[i+2];
+                            break;
+                        }
+
+                    }
+                    req.setAttribute("LoggedUser", userEmail);
                     chain.doFilter(req, res);
                 }
                 else

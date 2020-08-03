@@ -26,11 +26,11 @@ import java.util.Calendar;
 
 @WebServlet("/createtrade")
 public class TradeServlet extends OptionsServlet {
-
+//arregar con nueva logica donde hay que arreglar cartas
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] tradeData = gson.fromJson(req.getReader(), String[].class);
+        Card[] tradeData = gson.fromJson(req.getReader(), Card[].class);
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
@@ -39,12 +39,17 @@ public class TradeServlet extends OptionsServlet {
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
             Trade trade = new Trade();
             trade.setHostEmail(req.getAttribute("LoggedUser").toString());
-            trade.setCard(Cards.findById(tradeData[1]).get());
-            trade.setCondition(tradeData[2]);
+            trade.setCard(Cards.findById(req.getParameterValues("hostcardid")[0]).get());
+            trade.setCondition(req.getParameterValues("condition")[0]);
             int length=tradeData.length;
-            List<Card> cards= new ArrayList<>((length-3));
-        for (int i = 3; i <length ; i++) {
-            cards.add(Cards.findById(tradeData[i]).get());
+            List<Card> cards= new ArrayList<>((length));
+        for (int i = 0; i <length ; i++) {
+             Card card=tradeData[i];
+            if(Cards.findById(card.getId()).isEmpty()){
+                Cards.persist(card);
+            }
+            cards.add(card);
+
         }
            trade.setWillingToAccept(cards);
             Date date=Calendar.getInstance().getTime();

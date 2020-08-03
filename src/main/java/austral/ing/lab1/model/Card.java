@@ -16,20 +16,30 @@ public class Card {
     private String name;
 
     @Column(name = "Image_Url")
-    private String imageURL;
+    private String imageUrl;
 
     @Id
     private String id;
 
-    @Column(name = "Type")
-    private String type;
+    @Column(name = "Types")
+    private String[] types;
 
-    @Column(name = "Variant")
-    private String variant;
+    @Column(name = "subtype")
+    private String subtype;
+
+    @Column(name = "supertype")
+    private String supertype;
+
+    @Column(name = "national_Pokedex_Number")
+    private int nationalPokedexNumber;
 
     @ManyToMany(mappedBy = "cards")
     @JsonBackReference
     private List<User> users = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "wishlist")
+    @JsonBackReference
+    private List<User> users2 = new ArrayList<>();
 
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
     @JsonBackReference
@@ -56,12 +66,12 @@ public class Card {
         this.name = name;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getId() {
@@ -72,20 +82,36 @@ public class Card {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String[] getTypes() {
+        return types;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypes(String[] types) {
+        this.types = types;
     }
 
-    public String getVariant() {
-        return variant;
+    public String getSubtype() {
+        return subtype;
     }
 
-    public void setVariant(String variant) {
-        this.variant = variant;
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
+    }
+
+    public String getSupertype() {
+        return supertype;
+    }
+
+    public void setSupertype(String supertype) {
+        this.supertype = supertype;
+    }
+
+    public int getNationalPokedexNumber() {
+        return nationalPokedexNumber;
+    }
+
+    public void setNationalPokedexNumber(int nationalPokedexNumber) {
+        this.nationalPokedexNumber = nationalPokedexNumber;
     }
 
     public void setUsers(List<User> users) {
@@ -114,5 +140,13 @@ public class Card {
 
     public void setBids(List<Bid> bids) {
         this.bids = bids;
+    }
+
+    public List<User> getUsers2() {
+        return users2;
+    }
+
+    public void setUsers2(List<User> users2) {
+        this.users2 = users2;
     }
 }

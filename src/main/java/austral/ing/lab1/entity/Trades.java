@@ -51,7 +51,7 @@ public class Trades {
 
     }
 
-    public static List<Trade> exploreTradesWithTypeFilter(String hostEmail,String type) {
+   /* public static List<Trade> exploreTradesWithTypeFilter(String hostEmail,String type) {
 
         return tx(() -> LangUtils.<Trade>checkedList(currentEntityManager()
                 .createQuery("SELECT u FROM Trade u  WHERE u.hostEmail NOT LIKE :hostEmail AND u.isOpen = true AND u.card.type LIKE : type")
@@ -78,7 +78,7 @@ public class Trades {
 
         );
 
-    }
+    }*/
 
 
     public static Trade persist(Trade card) {

@@ -14,37 +14,36 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/registercard")
-public class RegisterCardServlet extends OptionsServlet {
-
+@WebServlet("/wishlistmaker")
+public class WishlistMakerServlet extends OptionsServlet {
+//agregar devuelta usuarios al tomcat
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        /*Gson gson = new Gson();
-        String[] cardData = gson.fromJson(req.getReader(), String[].class);
+        Gson gson = new Gson();
+        Card[] cards = gson.fromJson(req.getReader(),Card[].class);
+        Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
+
+        for (int i = 0; i <cards.length ; i++) {
+            if(Cards.findById(cards[i].getId()).isEmpty()){
+                Cards.persist(cards[i]);
+            }
+
+            currentUser.get().addCardToWishlist(Cards.findById(cards[i].getId()).get());
+        }
+
+        Users.persist(currentUser.get());
         resp.setContentType("application/json; charset=UTF-8");
         PrintWriter out = resp.getWriter();
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-        if (Cards.findById(cardData[2]).isEmpty()) {
-            Card card = new Card();
-            card.setName(cardData[0]);
-            card.setImageURL(cardData[1]);
-            card.setId(cardData[2]);
-            card.setType(cardData[3]);
-            card.setVariant(cardData[4]);
-            Cards.persist(card);
-
-            out.print(gson.toJson("Card Registered"));
-            resp.setStatus(201);
-        } else {
-            out.print(gson.toJson("Id Already exists"));
-            resp.sendError(409);
-        }
-        out.close();*/
+        out.print(gson.toJson("Cards added to collection!"));
+        resp.setStatus(200);
+        out.close();
     }
 }

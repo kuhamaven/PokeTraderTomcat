@@ -15,8 +15,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet("/collection")
-public class CollectionServlet extends OptionsServlet {
+@WebServlet("/wishlist")
+public class WishlistServlet extends OptionsServlet {
 
 
     @Override
@@ -24,19 +24,18 @@ public class CollectionServlet extends OptionsServlet {
         Gson gson = new Gson();
         String[] ids = gson.fromJson(req.getReader(),String[].class);
         Optional<User> currentUser = Users.findByEmail(ids[0]);
-        final List<Card> cards = currentUser.get().getCards();
+        final List<Card> wishlist = currentUser.get().getWishlist();
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS");
         ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(cards);
+        String json = objectMapper.writeValueAsString(wishlist);
         PrintWriter out = resp.getWriter();
         out.print(json);
         out.flush();
     }
 
 }
-
 

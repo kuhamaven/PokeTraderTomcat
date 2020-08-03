@@ -23,10 +23,13 @@ public class CollectionMakerServlet extends OptionsServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
-        String[] ids = gson.fromJson(req.getReader(),String[].class);
+        Card[] cards = gson.fromJson(req.getReader(),Card[].class);
         Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
-        for (int i = 1; i <ids.length ; i++) {
-            currentUser.get().addCard(Cards.findById(ids[i]).get());
+        for (int i = 0; i <cards.length ; i++) {
+            if(Cards.findById(cards[i].getId()).isEmpty()){
+               Cards.persist(cards[i]);
+            }
+            currentUser.get().addCard(Cards.findById(cards[i].getId()).get());
         }
         Users.persist(currentUser.get());
         resp.setContentType("application/json; charset=UTF-8");
