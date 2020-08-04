@@ -87,7 +87,7 @@ public class User {
   }
 
   public void addToPending(User user) {
-    if (friendList.contains(user) || pendingRequests.contains(user)) {}
+    if (friendList.contains(user)) {}
     else if(user.pendingRequests.contains(this)){
       this.friendList.add(user);
       user.friendList.add(this);
@@ -96,6 +96,12 @@ public class User {
     else{
     pendingRequests.add(user);
   }
+}
+
+public void removeFromPending(User user){
+    if(pendingRequests.contains(user)){
+      pendingRequests.remove(user);
+    }
 }
 
 
