@@ -4,7 +4,9 @@ import austral.ing.lab1.model.Card;
 import austral.ing.lab1.model.User;
 import austral.ing.lab1.util.LangUtils;
 
+
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +36,14 @@ public class Users {
     return tx(() ->
             checkedList(currentEntityManager().createQuery("SELECT u FROM User u").getResultList())
     );
+  }
+
+  public static List<User> listAllPendingRequests(String userId) {
+            Query q=currentEntityManager().createNativeQuery("SELECT u FROM User u JOIN Pending_Requests p ON u.id=p.Sender WHERE p.Receiver LIKE :userId");
+                   q.setParameter("userId",userId);
+            return  q.getResultList();
+
+
   }
 
   public static User persist(User user) {
