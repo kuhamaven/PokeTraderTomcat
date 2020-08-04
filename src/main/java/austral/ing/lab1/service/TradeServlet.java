@@ -48,7 +48,7 @@ public class TradeServlet extends OptionsServlet {
             if(Cards.findById(card.getId()).isEmpty()){
                 Cards.persist(card);
             }
-            cards.add(card);
+            cards.add(Cards.findById(card.getId()).get());
 
         }
            trade.setWillingToAccept(cards);

@@ -45,6 +45,17 @@ public class ExploreTradesServlet extends OptionsServlet {
             filteredTrades=FilterWithoutWishlist(data,currentUser);
 
         }
+        if(data[6].equals("true")){
+            List<User> friendlist = currentUser.getFriendList();
+            List<Trade> friendlistFiltered = new ArrayList<>();
+            for (int i = 0; i <filteredTrades.size() ; i++) {
+                User host = Users.findByEmail(filteredTrades.get(i).getHostEmail()).get();
+                if(friendlist.indexOf(host)>-1){
+                    friendlistFiltered.add(filteredTrades.get(i));
+                }
+            }
+            filteredTrades=friendlistFiltered;
+        }
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
