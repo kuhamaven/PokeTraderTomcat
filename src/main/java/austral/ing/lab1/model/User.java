@@ -22,52 +22,83 @@ public class User {
   private String id;
 
 
-  @Column(name="Photo_Url")
+  @Column(name = "Photo_Url")
   private String photoUrl;
 
-  @Column(name="Bio")
+  @Column(name = "Bio")
   private String bio;
 
-  @Column(name="Username")
+  @Column(name = "Username")
   private String userName;
 
-  @Column(name="Recently_Modified")
+  @Column(name = "Recently_Modified")
   private Boolean recentlyModified;
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JsonManagedReference
   @JoinTable(
           name = "User_Collection",
-          joinColumns = { @JoinColumn(name = "UID")},
-          inverseJoinColumns = { @JoinColumn(name = "ID")}
+          joinColumns = {@JoinColumn(name = "UID")},
+          inverseJoinColumns = {@JoinColumn(name = "ID")}
   )
   private List<Card> cards = new ArrayList<>();
 
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JsonBackReference
+  @JoinTable(
+          name = "Friend_List",
+          joinColumns = {@JoinColumn(name = "U_1")},
+          inverseJoinColumns = {@JoinColumn(name = "U_2")}
+  )
+  private List<User> friendList = new ArrayList<>();
+
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JsonBackReference
+  @JoinTable(
+          name = "Pending_Requests",
+          joinColumns = {@JoinColumn(name = "Sender")},
+          inverseJoinColumns = {@JoinColumn(name = "Receiver")}
+  )
+  private List<User> pendingRequests = new ArrayList<>();
 
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JsonManagedReference
   @JoinTable(
           name = "User_Wishlist",
-          joinColumns = { @JoinColumn(name = "UID")},
-          inverseJoinColumns = { @JoinColumn(name = "ID")}
+          joinColumns = {@JoinColumn(name = "UID")},
+          inverseJoinColumns = {@JoinColumn(name = "ID")}
   )
-  private List<Card> wishlist= new ArrayList<>();
+  private List<Card> wishlist = new ArrayList<>();
 
-  @Column(name="Recently_Modified_Wishlist")
+  @Column(name = "Recently_Modified_Wishlist")
   private Boolean recentlyModifiedWishlist;
 
-  public void addCard(Card card){
-    if(cards.contains(card)){}
-    else {
-      if(wishlist.contains(card)){
+  public void addCard(Card card) {
+    if (cards.contains(card)) {
+    } else {
+      if (wishlist.contains(card)) {
         removeCardWishlist(card);
       }
-      recentlyModified=true;
+      recentlyModified = true;
       cards.add(card);
       card.getUsers().add(this);
     }
   }
+
+  public void addToPending(User user) {
+    if (friendList.contains(user) || pendingRequests.contains(user)) {}
+    else if(user.pendingRequests.contains(this)){
+      this.friendList.add(user);
+      user.friendList.add(this);
+      user.pendingRequests.remove(this);
+    }
+    else{
+    pendingRequests.add(user);
+  }
+}
+
+
 
   public void addCardToWishlist(Card card){
     if(wishlist.contains(card)||cards.contains(card)){}
@@ -77,6 +108,7 @@ public class User {
       card.getUsers().add(this);
     }
   }
+
 
   public void removeCard(Card card){
     if(cards.contains(card)){
@@ -163,5 +195,21 @@ public class User {
 
   public void setRecentlyModifiedWishlist(Boolean recentlyModifiedWishlist) {
     this.recentlyModifiedWishlist = recentlyModifiedWishlist;
+  }
+
+  public List<User> getFriendList() {
+    return friendList;
+  }
+
+  public void setFriendList(List<User> friendList) {
+    this.friendList = friendList;
+  }
+
+  public List<User> getPendingRequests() {
+    return pendingRequests;
+  }
+
+  public void setPendingRequests(List<User> pendingRequests) {
+    this.pendingRequests = pendingRequests;
   }
 }

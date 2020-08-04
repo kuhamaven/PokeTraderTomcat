@@ -69,6 +69,7 @@ public class ExploreTradesServlet extends OptionsServlet {
         String rarity=data[4];
         for (int i = 0; i <wishlist.size(); i++) {
             Card c=wishlist.get(i);
+            if(!type.equals("%") && c.getSupertype().charAt(0)!='P') continue;
             if(type.equals("%") || c.getTypes()[0].equals(type) || (c.getTypes().length>1 && c.getTypes()[1].equals(type))){
             filteredTrades.addAll(Trades.exploreTradesWithId(currentUser.getEmail(),name,supertype,subtype,rarity,c.getId()));
             }
@@ -92,7 +93,7 @@ public class ExploreTradesServlet extends OptionsServlet {
         for (int i = 0; i <filteredTrades.size() ; i++) {
             Trade t=filteredTrades.get(i);
             Card c=t.getCard();
-
+            if(c.getSupertype().charAt(0)!='P') continue;
          if( c.getTypes()[0].equals(type) || (c.getTypes().length>1 && c.getTypes()[1].equals(type))){
              filteredTradesResult.add(t);
          }
