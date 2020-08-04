@@ -23,7 +23,7 @@ import java.util.Optional;
 public class FriendServlet extends OptionsServlet {
     //agregar devuelta usuarios al tomcat
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Gson gson = new Gson();
         Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
         List<User> friends=currentUser.get().getFriendList();
