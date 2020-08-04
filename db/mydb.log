@@ -214,3 +214,43 @@ COMMIT
 /*C34*/SET SCHEMA PUBLIC
 DISCONNECT
 /*C35*/DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+create table Friend_List (U_1 varchar(255) not null, U_2 varchar(255) not null)
+create table Pending_Requests (Sender varchar(255) not null, Receiver varchar(255) not null)
+alter table Friend_List add constraint FKil6slo6dvbrjg4t9k3k3g11te foreign key (U_2) references User
+alter table Friend_List add constraint FKsvfg3hiv11qtqdcu7hgxwk0d1 foreign key (U_1) references User
+alter table Pending_Requests add constraint FK5kqyyyly5l69awl1gom3y4p3p foreign key (Receiver) references User
+alter table Pending_Requests add constraint FKfmitrjj392l9bwdw2wn59a98q foreign key (Sender) references User
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES('xy7-10','https://images.pokemontcg.io/xy7/10.png','Vespiquen',416,'Uncommon','Stage 1','Pok\u00c3\u00a9mon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b470200007870000000017400054772617373')
+COMMIT
+DELETE FROM USER_WISHLIST WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42' AND ID='xy7-4'
+DELETE FROM USER_WISHLIST WHERE UID='5BqbujNfUuhNXS1bLqy4Cx8tSA42' AND ID='base4-112'
+INSERT INTO USER_WISHLIST VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42','xy7-4')
+INSERT INTO USER_WISHLIST VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42','base4-112')
+INSERT INTO USER_WISHLIST VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42','xy7-10')
+COMMIT
+INSERT INTO PENDING_REQUESTS VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','5BqbujNfUuhNXS1bLqy4Cx8tSA42')
+COMMIT
+/*C43*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+INSERT INTO FRIEND_LIST VALUES('5BqbujNfUuhNXS1bLqy4Cx8tSA42','j7NTvpniStbxeUhHpEzUWW2I0iy2')
+INSERT INTO FRIEND_LIST VALUES('j7NTvpniStbxeUhHpEzUWW2I0iy2','5BqbujNfUuhNXS1bLqy4Cx8tSA42')
+DELETE FROM PENDING_REQUESTS WHERE SENDER='j7NTvpniStbxeUhHpEzUWW2I0iy2' AND RECEIVER='5BqbujNfUuhNXS1bLqy4Cx8tSA42'
+COMMIT
+/*C45*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+DISCONNECT
