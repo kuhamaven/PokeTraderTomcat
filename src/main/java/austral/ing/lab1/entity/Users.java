@@ -39,9 +39,9 @@ public class Users {
   }
 
   public static List<User> listAllPendingRequests(String userId) {
-            Query q=currentEntityManager().createNativeQuery("SELECT u FROM User u JOIN Pending_Requests p ON u.id=p.Sender WHERE p.Receiver LIKE :userId");
-                   q.setParameter("userId",userId);
-            return  q.getResultList();
+    return tx(() ->
+            checkedList(currentEntityManager().createNativeQuery("SELECT * FROM User u JOIN Pending_Requests p ON u.UID=p.Sender WHERE p.Receiver LIKE :userId").setParameter("userId",userId).getResultList())
+    );
 
 
   }
