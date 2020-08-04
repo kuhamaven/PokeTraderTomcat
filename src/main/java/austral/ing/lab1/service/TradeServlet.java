@@ -46,6 +46,9 @@ public class TradeServlet extends OptionsServlet {
         for (int i = 0; i <length ; i++) {
              Card card=tradeData[i];
             if(Cards.findById(card.getId()).isEmpty()){
+                if(card.getSupertype().charAt(0)=='P'){
+                    card.setSupertype("Pokemon");
+                }
                 Cards.persist(card);
             }
             cards.add(Cards.findById(card.getId()).get());

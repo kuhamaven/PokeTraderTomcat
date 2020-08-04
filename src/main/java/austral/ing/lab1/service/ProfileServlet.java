@@ -33,6 +33,7 @@ public class ProfileServlet extends OptionsServlet {
             ObjectMapper objectMapper = new ObjectMapper();
             String json = objectMapper.writeValueAsString(currentUser.get());
             currentUser.get().setRecentlyModified(false);
+            currentUser.get().setRecentlyModifiedWishlist(false);
             Users.persist(currentUser.get());
             out.print(json);
             resp.setStatus(201);

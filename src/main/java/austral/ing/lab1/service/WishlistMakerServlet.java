@@ -28,8 +28,12 @@ public class WishlistMakerServlet extends OptionsServlet {
         Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
 
         for (int i = 0; i <cards.length ; i++) {
+            Card card=cards[i];
             if(Cards.findById(cards[i].getId()).isEmpty()){
-                Cards.persist(cards[i]);
+                if(card.getSupertype().charAt(0)=='P'){
+                    card.setSupertype("Pokemon");
+                }
+                Cards.persist(card);
             }
 
             currentUser.get().addCardToWishlist(Cards.findById(cards[i].getId()).get());
