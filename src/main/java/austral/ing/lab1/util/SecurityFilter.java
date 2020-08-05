@@ -36,10 +36,12 @@ public class SecurityFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
             try {
+                String token = "";
+                if(req.getQueryString()!=null) {
+                    final String tokenId = req.getParameterValues("tokenId")[0];
 
-                final String tokenId = req.getParameterValues("tokenId")[0];
-
-                String token = "{\"idToken\": \"" + tokenId + "\" }";
+                    token = "{\"idToken\": \"" + tokenId + "\" }";
+                }
 
                 HttpRequest.BodyPublisher body = HttpRequest.BodyPublishers.ofString(token);
 
@@ -64,6 +66,9 @@ public class SecurityFilter extends HttpFilter {
 
                     }
                     req.setAttribute("LoggedUser", userEmail);
+                    chain.doFilter(req, res);
+                }
+                else if (req.getRequestURL().toString().equals("http://localhost:8080/homescreen")){
                     chain.doFilter(req, res);
                 }
                 else

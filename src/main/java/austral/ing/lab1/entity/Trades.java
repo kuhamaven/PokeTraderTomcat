@@ -70,7 +70,6 @@ public class Trades {
                         "u.card.subtype LIKE : subtype AND u.card.rarity LIKE : rarity")
                 .setParameter("hostEmail", hostEmail).setParameter("name", name).setParameter("supertype", supertype)
                 .setParameter("subtype", subtype).setParameter("rarity", rarity).getResultList())
-
         );
     }
 
