@@ -23,7 +23,7 @@ public class HomeScreenServlet extends OptionsServlet {
         final List<Trade> trades = austral.ing.lab1.entity.Trades.listAll();
         List<Card> cards = new ArrayList<>();
         for (int i = trades.size()-1; i > 0; i--) {
-            if(cards.size()>=5) {break;}
+            if(cards.size()>=4) {break;}
             cards.add(trades.get(i).getWillingToAccept().get(0));
         }
         resp.setContentType("application/json");

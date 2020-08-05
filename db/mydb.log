@@ -1,0 +1,145 @@
+/*C2*/SET SCHEMA PUBLIC
+INSERT INTO CARD VALUES('dp2-5','https://images.pokemontcg.io/dp2/5.png','Blissey',242,'Rare Holo','Stage 1','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
+COMMIT
+INSERT INTO TRADE VALUES(13,FALSE,'Near Mint','numa.leone@gmail.com',FALSE,TRUE,'05-08-2020','ex7-20')
+INSERT INTO REQUESTED_CARDS VALUES(13,'dp2-5')
+COMMIT
+DISCONNECT
+/*C3*/SET SCHEMA PUBLIC
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2',NULL,'cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',NULL,NULL,NULL)
+COMMIT
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3',NULL,'kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',NULL,NULL,NULL)
+COMMIT
+/*C4*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3',NULL,'kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',FALSE,FALSE,NULL)
+COMMIT
+/*C3*/DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','Vengo de canada, soy fan de principito','kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',FALSE,FALSE,'Kevo')
+COMMIT
+/*C5*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2',NULL,'cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',FALSE,FALSE,NULL)
+COMMIT
+DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',FALSE,FALSE,'Cami')
+COMMIT
+/*C3*/INSERT INTO CARD VALUES('xy9-11','https://images.pokemontcg.io/xy9/11.png','Arcanine',59,'Uncommon','Stage 1','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b4702000078700000000174000446697265')
+COMMIT
+/*C5*/DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',FALSE,TRUE,'Cami')
+INSERT INTO USER_WISHLIST VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xy9-11')
+COMMIT
+INSERT INTO CARD VALUES('swsh2-28','https://images.pokemontcg.io/swsh2/28.png','Arcanine',59,'Rare','Stage 1','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b4702000078700000000174000446697265')
+COMMIT
+/*C4*/DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',TRUE,TRUE,'Cami')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','swsh2-28')
+COMMIT
+/*C5*/INSERT INTO CARD VALUES('xy12-18','https://images.pokemontcg.io/xy12/18.png','Arcanine',59,'Rare','Stage 1','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b4702000078700000000174000446697265')
+COMMIT
+/*C4*/DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='swsh2-28'
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','swsh2-28')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xy12-18')
+COMMIT
+/*C5*/INSERT INTO CARD VALUES('xyp-XY180','https://images.pokemontcg.io/xyp/XY180.png','Arcanine BREAK',59,NULL,'BREAK','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b4702000078700000000174000446697265')
+COMMIT
+/*C4*/DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='swsh2-28'
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='xy12-18'
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','swsh2-28')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xy12-18')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xyp-XY180')
+COMMIT
+DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',FALSE,FALSE,'Cami')
+COMMIT
+/*C3*/INSERT INTO CARD VALUES('smp-SM174','https://images.pokemontcg.io/smp/SM174.png','Eevee-GX',133,'','GX','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
+COMMIT
+/*C5*/DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','Vengo de canada, soy fan de principito','kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',FALSE,TRUE,'Kevo')
+INSERT INTO USER_WISHLIST VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','smp-SM174')
+COMMIT
+/*C3*/INSERT INTO CARD VALUES('sm9-191','https://images.pokemontcg.io/sm9/191.png','Eevee & Snorlax-GX',133,'Rare Secret','TAG TEAM','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
+COMMIT
+/*C5*/DELETE FROM USER_WISHLIST WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3' AND ID='smp-SM174'
+INSERT INTO USER_WISHLIST VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','smp-SM174')
+INSERT INTO USER_WISHLIST VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','sm9-191')
+COMMIT
+INSERT INTO CARD VALUES('hgss3-48','https://images.pokemontcg.io/hgss3/48.png','Eevee',133,'Common','Basic','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
+COMMIT
+/*C4*/DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','Vengo de canada, soy fan de principito','kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',TRUE,TRUE,'Kevo')
+INSERT INTO USER_COLLECTION VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','hgss3-48')
+COMMIT
+/*C5*/INSERT INTO CARD VALUES('base2-51','https://images.pokemontcg.io/base2/51.png','Eevee',133,'Common','Basic','Pokemon','aced0005757200135b4c6a6176612e6c616e672e537472696e673badd256e7e91d7b47020000787000000001740009436f6c6f726c657373')
+COMMIT
+/*C4*/DELETE FROM USER_COLLECTION WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3' AND ID='hgss3-48'
+INSERT INTO USER_COLLECTION VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','hgss3-48')
+INSERT INTO USER_COLLECTION VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','base2-51')
+COMMIT
+/*C3*/DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','Vengo de canada, soy fan de principito','kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',FALSE,FALSE,'Kevo')
+COMMIT
+/*C4*/INSERT INTO PENDING_REQUESTS VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','HHbgCRrz4LcoZQqesKFHfEICQPO2')
+COMMIT
+INSERT INTO FRIEND_LIST VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','6jlZlTmDtAeMcA13jJMmMCFN6yH3')
+INSERT INTO FRIEND_LIST VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','HHbgCRrz4LcoZQqesKFHfEICQPO2')
+DELETE FROM PENDING_REQUESTS WHERE SENDER='6jlZlTmDtAeMcA13jJMmMCFN6yH3' AND RECEIVER='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+COMMIT
+INSERT INTO TRADE VALUES(14,FALSE,'Near Mint','kevin.stessens@gmail.com.ar',FALSE,TRUE,'05-08-2020','base2-51')
+INSERT INTO REQUESTED_CARDS VALUES(14,'xyp-XY180')
+COMMIT
+INSERT INTO BID VALUES(3,FALSE,'cami.sidanez@gmail.com','05-08-2020','kevin.stessens@gmail.com.ar',FALSE,FALSE,14,'HHbgCRrz4LcoZQqesKFHfEICQPO2','xyp-XY180')
+COMMIT
+/*C3*/DELETE FROM BID WHERE BID=3
+INSERT INTO BID VALUES(3,TRUE,'cami.sidanez@gmail.com','05-08-2020','kevin.stessens@gmail.com.ar',FALSE,FALSE,14,'HHbgCRrz4LcoZQqesKFHfEICQPO2','xyp-XY180')
+COMMIT
+DELETE FROM TRADE WHERE TID=14
+INSERT INTO TRADE VALUES(14,FALSE,'Near Mint','kevin.stessens@gmail.com.ar',FALSE,FALSE,'05-08-2020','base2-51')
+COMMIT
+DELETE FROM TRADE WHERE TID=14
+INSERT INTO TRADE VALUES(14,TRUE,'Near Mint','kevin.stessens@gmail.com.ar',FALSE,FALSE,'05-08-2020','base2-51')
+COMMIT
+DELETE FROM TRADE WHERE TID=14
+INSERT INTO TRADE VALUES(14,TRUE,'Near Mint','kevin.stessens@gmail.com.ar',TRUE,FALSE,'05-08-2020','base2-51')
+COMMIT
+/*C4*/DELETE FROM BID WHERE BID=3
+INSERT INTO BID VALUES(3,TRUE,'cami.sidanez@gmail.com','05-08-2020','kevin.stessens@gmail.com.ar',FALSE,TRUE,14,'HHbgCRrz4LcoZQqesKFHfEICQPO2','xyp-XY180')
+COMMIT
+/*C3*/DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','Vengo de canada, soy fan de principito','kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',TRUE,FALSE,'Kevo')
+DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',TRUE,FALSE,'Cami')
+DELETE FROM USER_COLLECTION WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3' AND ID='hgss3-48'
+DELETE FROM USER_COLLECTION WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3' AND ID='base2-51'
+INSERT INTO USER_COLLECTION VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','hgss3-48')
+INSERT INTO USER_COLLECTION VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','xyp-XY180')
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='swsh2-28'
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='xy12-18'
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='xyp-XY180'
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','swsh2-28')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xy12-18')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','base2-51')
+COMMIT
+/*C4*/DELETE FROM USER WHERE UID='6jlZlTmDtAeMcA13jJMmMCFN6yH3'
+INSERT INTO USER VALUES('6jlZlTmDtAeMcA13jJMmMCFN6yH3','Vengo de canada, soy fan de principito','kevin.stessens@gmail.com.ar','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_dqha3txigti?alt=media&token=47638076-324e-4140-89ff-8fa9bef0a6fe',FALSE,FALSE,'Kevo')
+COMMIT
+/*C5*/DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',FALSE,FALSE,'Cami')
+COMMIT
+/*C4*/DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',TRUE,FALSE,'Cami')
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='swsh2-28'
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='xy12-18'
+DELETE FROM USER_COLLECTION WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='base2-51'
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','swsh2-28')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xy12-18')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','base2-51')
+INSERT INTO USER_COLLECTION VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','xy9-11')
+DELETE FROM USER_WISHLIST WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2' AND ID='xy9-11'
+COMMIT
+/*C5*/DELETE FROM USER WHERE UID='HHbgCRrz4LcoZQqesKFHfEICQPO2'
+INSERT INTO USER VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','Vos sos una bio','cami.sidanez@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_mfrnl8qnbzh?alt=media&token=de91cf44-1f34-489d-b850-f5799eef095d',FALSE,FALSE,'Cami')
+COMMIT
+INSERT INTO PENDING_REQUESTS VALUES('HHbgCRrz4LcoZQqesKFHfEICQPO2','j7NTvpniStbxeUhHpEzUWW2I0iy2')
+COMMIT
