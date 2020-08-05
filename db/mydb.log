@@ -117,3 +117,8 @@ INSERT INTO PENDING_REQUESTS VALUES('LXjkdl5JpAbPKrrUzUWJltuekI02','5BqbujNfUuhN
 COMMIT
 INSERT INTO PENDING_REQUESTS VALUES('AQrK7zZJTRSByHBcMzsmC73yBt33','j7NTvpniStbxeUhHpEzUWW2I0iy2')
 COMMIT
+/*C39*/INSERT INTO BID VALUES(2,FALSE,'numa.leone@gmail.com','05-08-2020','sofia.sidanez@ing.austral.edu.ar',FALSE,FALSE,1,'AQrK7zZJTRSByHBcMzsmC73yBt33','xy7-43')
+COMMIT
+DELETE FROM USER WHERE UID='0NoLd7uAtJW7qOfWrVDB6V1soNR2'
+INSERT INTO USER VALUES('0NoLd7uAtJW7qOfWrVDB6V1soNR2','Soy Levia y hago memes','levia@gmail.com','https://firebasestorage.googleapis.com/v0/b/loginangular-843e5.appspot.com/o/uploads%2Fprofile_iroyubudzm?alt=media&token=dd1def64-c9f0-491f-9364-1fdd2ad8ca04',FALSE,FALSE,'Levia')
+COMMIT
