@@ -7,6 +7,7 @@ import austral.ing.lab1.util.LangUtils;
 
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -38,13 +39,47 @@ public class Users {
     );
   }
 
-  public static List<User> listAllPendingRequests(String userId) {
+ /* public static List<User> listAllPendingRequests(String userId) {
     return tx(() ->
             checkedList(currentEntityManager().createNativeQuery("SELECT * FROM User u JOIN Pending_Requests p ON u.UID=p.Sender WHERE p.Receiver LIKE :userId").setParameter("userId",userId).getResultList())
+    );
+*/
+
+
+  public static List<String> listAllReceivedRequests1(String userId) {
+    return tx(() ->
+            checkedList(currentEntityManager().createNativeQuery("SELECT p.Sender FROM  Pending_Requests p WHERE p.Receiver LIKE :userId").setParameter("userId",userId).getResultList())
     );
 
 
   }
+  public static List<String> listAllPendingRequests1(String userId) {
+    return tx(() ->
+            checkedList(currentEntityManager().createNativeQuery("SELECT p.Receiver FROM  Pending_Requests p WHERE p.Sender LIKE :userId").setParameter("userId",userId).getResultList())
+    );
+
+
+  }
+
+
+  public static List<User> listAllUsersById(List<String> list){
+    List<User> result=new ArrayList<>();
+    for (int i = 0; i <list.size() ; i++) {
+      result.add(findById(list.get(i)).get());
+    }
+
+    return result;
+  }
+
+  public static List<User> listAllReceivedRequests(String userId){
+    return listAllUsersById(listAllReceivedRequests1(userId));
+  }
+  public static List<User> listAllPendingRequests(String userId){
+    return listAllUsersById(listAllPendingRequests1(userId));
+  }
+
+
+
 
   public static User persist(User user) {
     final EntityTransaction tx = currentEntityManager().getTransaction();

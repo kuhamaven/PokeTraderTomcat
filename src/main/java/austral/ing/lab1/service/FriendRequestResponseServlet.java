@@ -29,8 +29,8 @@ public class FriendRequestResponseServlet extends OptionsServlet {
         Optional<User> currentUser = Users.findByEmail(req.getAttribute("LoggedUser").toString());
         Optional<User> userThatRequested=Users.findByEmail(frr[0]);
         String response="";
-        if(frr[1].equals("True")){
-            currentUser.get().addToPending(userThatRequested.get());
+        if(frr[1].equals("true")){
+            currentUser.get().addToFriendList(userThatRequested.get());
             response="User Added to Friend List!";
         }else{
             userThatRequested.get().removeFromPending(currentUser.get());
